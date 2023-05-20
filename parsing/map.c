@@ -6,7 +6,7 @@
 /*   By: aahrach <aahrach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 22:29:25 by aahrach           #+#    #+#             */
-/*   Updated: 2023/05/10 15:44:50 by aahrach          ###   ########.fr       */
+/*   Updated: 2023/05/19 10:21:04 by aahrach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ void	map_closed(char **map_test, int x, int y, int len)
 				|| (y == 0 && map_test[y][x] != '1' && map_test[y][x] != ' ')
 				|| (y == len - 1 && map_test[y][x] != '1'
 				&& map_test[y][x] != ' '))
-				ft_eroor("THE MAP IS NOT CLOSED TO (1)!\n");
+				ft_eroor("THE MAP IS NOT CLOSED BY (1)!\n");
 			else if ((map_test[y][x] == '0') || (map_test[y][x] == 'N')
 				|| (map_test[y][x] == 'S') || (map_test[y][x] == 'E')
 				|| (map_test[y][x] == 'W'))
@@ -92,7 +92,7 @@ void	map_closed(char **map_test, int x, int y, int len)
 					|| (map_test[y][x + 1] == ' ')
 					|| (map_test[y + 1][x] == ' ')
 					|| (map_test[y - 1][x] == ' '))
-					ft_eroor("THE MAP IS NOT CLOSED TO (1)!\n");
+					ft_eroor("THE MAP IS NOT CLOSED BY (1)!\n");
 			}
 		}
 	}

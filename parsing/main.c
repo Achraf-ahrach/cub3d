@@ -6,7 +6,7 @@
 /*   By: aahrach <aahrach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 22:28:34 by aahrach           #+#    #+#             */
-/*   Updated: 2023/05/10 15:42:26 by aahrach          ###   ########.fr       */
+/*   Updated: 2023/05/19 10:55:50 by aahrach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,8 @@ int	main(int ac, char **env)
 	map = read_line(env[1], 0);
 	tmp = map;
 	fill_in_struct(list, tmp);
-	system("leaks cub");
+	if (!list->map)
+		ft_eroor("Error: THE MAP EMPTY !\n");
+	// system("leaks cub");
+	mini_map(list);
 }
