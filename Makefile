@@ -1,11 +1,13 @@
-CC = cc
+CC = cc #-g
 CFLAGS = -Wall -Wextra -Werror #-fsanitize=address
+CFLAGS_mlx = -lmlx -framework OpenGL -framework AppKit
 NAME = cub
 SRC = parsing/main.c\
 	parsing/colors.c\
 	parsing/map.c\
 	parsing/textures.c\
 	parsing/utils.c\
+	parsing/mini_map.c\
 	libft/ft_atoi.c\
 	libft/ft_itoa.c\
 	libft/ft_bzero.c\
@@ -55,7 +57,7 @@ OBJ = $(SRC:.c=.o)
 all : $(NAME)
 
 $(NAME) : $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+	$(CC) $(CFLAGS) $(CFLAGS_mlx) $(OBJ) -o $(NAME)
 
 clean :
 	rm -rf $(OBJ)

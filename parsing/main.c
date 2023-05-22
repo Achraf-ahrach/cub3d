@@ -6,7 +6,11 @@
 /*   By: ajari <ajari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 22:28:34 by aahrach           #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2023/05/22 15:44:55 by ajari            ###   ########.fr       */
+=======
+/*   Updated: 2023/05/19 10:55:50 by aahrach          ###   ########.fr       */
+>>>>>>> f47a6a361e5780a7498e8390ac0d44a4013dbdca
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +38,8 @@ int	main(int ac, char **env)
 	map = read_line(env[1], 0);
 	tmp = map;
 	fill_in_struct(list, tmp);
-	system("leaks cub");
+	if (!list->map)
+		ft_eroor("Error: THE MAP EMPTY !\n");
+	// system("leaks cub");
+	mini_map(list);
 }

@@ -6,25 +6,11 @@
 /*   By: aahrach <aahrach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 22:45:46 by aahrach           #+#    #+#             */
-/*   Updated: 2023/05/10 15:46:31 by aahrach          ###   ########.fr       */
+/*   Updated: 2023/05/18 15:50:17 by aahrach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
-
-// int	arrived_map(char *str)
-// {
-// 	int	i;
-
-// 	i = 0;
-// 	while (str[i] != '\n')
-// 	{
-// 		if (str[i] == '1' || str[i] == '0')
-// 			return (1);
-// 	i++;
-// 	}
-// 	return (0);
-// }
 
 void	ft_init(t_lst *list)
 {
