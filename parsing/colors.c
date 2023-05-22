@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   colors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aahrach <aahrach@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ajari <ajari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 22:41:06 by aahrach           #+#    #+#             */
-/*   Updated: 2023/05/09 22:40:50 by aahrach          ###   ########.fr       */
+/*   Updated: 2023/05/19 16:52:02 by ajari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	cut_color_help(char **str_spl, int *nb, int i)
 {
-	int		len;
+	int	len;
 	int		j;
 	char	*str;
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aahrach <aahrach@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ajari <ajari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 22:28:34 by aahrach           #+#    #+#             */
-/*   Updated: 2023/05/10 15:42:26 by aahrach          ###   ########.fr       */
+/*   Updated: 2023/05/22 15:44:55 by ajari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_eroor(char *str)
 	i = 0;
 	while (str[i])
 		write(2, &str[i++], 1);
-	exit (1);
+	exit(1);
 }
 
 int	main(int ac, char **env)
