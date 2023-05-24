@@ -6,7 +6,7 @@
 /*   By: ajari <ajari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 13:54:07 by ajari             #+#    #+#             */
-/*   Updated: 2023/05/22 17:07:54 by ajari            ###   ########.fr       */
+/*   Updated: 2023/05/22 20:40:28 by ajari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,12 @@ char	*ft_line(char **ptr)
 	int		i;
 
 	line = 0;
-	i = ft_strchr_index(*ptr, '\n') + 1;
+	i = ft_strchr_index(*ptr, '\n');
 	if (i)
 	{
 		line = ft_substr(*ptr, 0, i);
 		tmp = *ptr;
-		*ptr = ft_strdup(*ptr + i);
+		*ptr = ft_strdup(*ptr + i + 1);
 		free(tmp);
 	}
 	return (line);
@@ -86,12 +86,12 @@ char	*get_next_line(int fd)
 
 	if (BUFFER_SIZE >= SIZE_MAX || BUFFER_SIZE <= 0)
 		return (0);
-	i = ft_strchr_index(ptr, '\n') + 1;
+	i = ft_strchr_index(ptr, '\n');
 	if (ptr && *ptr && i)
 	{
 		tmp = ptr;
 		line = ft_substr(ptr, 0, i);
-		ptr = ft_strdup(ptr + i);
+		ptr = ft_strdup(ptr + i + 1);
 		free(tmp);
 	}
 	else

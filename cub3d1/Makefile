@@ -1,7 +1,7 @@
 NAME = cub3d
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror #-fsanitize=address -g3
-SRCF = ./src
+CFLAGS = -Wall -Wextra -Werror -fsanitize=address -g3
+SRCF = src
 LIBFT = src/libft/libft.a
 LIB =  -lmlx -framework OpenGL -framework AppKit 
 SRC = $(wildcard $(SRCF)/*.c)
