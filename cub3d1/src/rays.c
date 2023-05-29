@@ -6,7 +6,7 @@
 /*   By: ajari <ajari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 10:36:20 by ajari             #+#    #+#             */
-/*   Updated: 2023/05/29 14:49:58 by ajari            ###   ########.fr       */
+/*   Updated: 2023/05/29 17:47:59 by ajari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ void	rays(t_lst m, double dh, double dv, int color)
 	m.i = WIE / 2;
 	while (m.i--)
 	{
-		m.t -= (PI / 6) / WIE;
+		m.t -= (PI / 3) / WIE;
 		(m.t < 0) && (m.t = 2 * PI);
 	}
 	while (m.i < WIE)
@@ -100,7 +100,7 @@ void	rays(t_lst m, double dh, double dv, int color)
 		(dh < dv) && (v_x = h_x, v_y = h_y);
 		draw_line(m, m.p, (t_pos){v_x - 1, v_y - 1}, color);
 		m.i++;
-		m.t += (PI / 6) / WIE;
+		m.t += (PI / 3) / WIE;
 		(m.t > 2 * PI) && (m.t = 0);
 	}
 }
