@@ -6,7 +6,7 @@
 /*   By: ajari <ajari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 16:06:09 by ajari             #+#    #+#             */
-/*   Updated: 2023/05/23 15:23:56 by ajari            ###   ########.fr       */
+/*   Updated: 2023/05/29 15:03:05 by ajari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ typedef struct s_lst
 	char	*ea;
 	int		*f;
 	int		*c;
+	int		i;
 	char	**map;
 	char	orie;
 	int		s_lin;
@@ -79,7 +80,7 @@ typedef struct s_lst
 # define PL 6
 # define PM PL / 2
 # define SM SQ / 2
-# define SP 7
+# define S 7
 ///////////////////////// --fonctions get_line-- ///////////////////
 char		*get_next_line(int fd);
 char		*ft_substr(char const *s, unsigned int start, size_t len);
@@ -99,7 +100,7 @@ void		print(t_lst m);
 void		var_angle(int k, t_lst *m);
 int			ok(t_lst *m, int k);
 void		draw_line(t_lst m, t_pos p1, t_pos p2, int color);
-void		rays(t_lst *m, int color);
+void		rays(t_lst m, double dh, double dv, int color);
 void		cord(char *s, double x, double y);
 ////////////////////////////////////////////////////////////////////
 

@@ -6,7 +6,7 @@
 /*   By: ajari <ajari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 07:20:55 by ajari             #+#    #+#             */
-/*   Updated: 2023/05/23 18:11:56 by ajari            ###   ########.fr       */
+/*   Updated: 2023/05/29 17:01:40 by ajari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,15 @@ int	ok(t_lst *m, int k)
 	int	x;
 	int	y;
 
-	(k == 125) && (x = m->p.x - cos(m->t) * SP, y = m->p.y - sin(m->t) * SP);
-	(k == 126) && (x = m->p.x + cos(m->t) * SP, y = m->p.y + sin(m->t) * SP);
-	(!k) && (x = m->p.x + cos(m->t + PD) * SP, y = m->p.y + sin(m->t + PD)
-			* SP);
-	(k == 2) && (x = m->p.x - cos(m->t + PD) * SP, y = m->p.y - sin(m->t + PD)
-			* SP);
-	(k == 1) && (x = m->p.x - cos(m->t + PI) * SP, y = m->p.y - sin(m->t + PI)
-			* SP);
-	(k == 13) && (x = m->p.x + cos(m->t + PI) * SP, y = m->p.y + sin(m->t + PI)
-			* SP);
+	(k == 125) && (x = m->p.x - cos(m->t) * S, y = m->p.y - sin(m->t) * S);
+	(k == 126) && (x = m->p.x + cos(m->t) * S, y = m->p.y + sin(m->t) * S);
+	(!k) && (x = m->p.x + cos(m->t + PD) * S, y = m->p.y + sin(m->t + PD) * S);
+	(k == 2) && (x = m->p.x - cos(m->t + PD) * S, y = m->p.y - sin(m->t + PD)
+			* S);
+	(k == 1) && (x = m->p.x - cos(m->t + PI) * S, y = m->p.y - sin(m->t + PI)
+			* S);
+	(k == 13) && (x = m->p.x + cos(m->t + PI) * S, y = m->p.y + sin(m->t + PI)
+			* S);
 	if (k == 126 || k == 125 || !k || k == 13 || k == 1 || k == 2)
 	{
 		(m->map[(int)((y + PM) / SQ)][(int)((x + PM) / SQ)] == '1') && (k = -1);
@@ -37,11 +36,6 @@ int	ok(t_lst *m, int k)
 	return (k);
 }
 
-void	move_deri(t_lst *m, int k)
-{
-	if (k)
-		m->map = 0;
-}
 void	var_angle(int k, t_lst *m)
 {
 	if (k == 123)

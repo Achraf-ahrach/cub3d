@@ -6,7 +6,7 @@
 /*   By: ajari <ajari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 16:04:31 by ajari             #+#    #+#             */
-/*   Updated: 2023/05/23 18:29:06 by ajari            ###   ########.fr       */
+/*   Updated: 2023/05/29 15:03:28 by ajari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,22 +35,22 @@ void	fill_map(char *name, t_lst *m, int fd, int i)
 
 int	move_key(int k, t_lst *m)
 {
-	rays(m, BLACK);
+	double	t;
+
+	t = m->t;
+	if (k == 53)
+		exit(0);
+	rays(*m, 0, 0, BLACK);
 	var_angle(k, m);
 	put_ply(m, m->p, BLACK);
-	(ok(m, k) == 125) && (m->p.x -= cos(m->t) * SP, m->p.y -= sin(m->t) * SP);
-	(ok(m, k) == 126) && (m->p.x += cos(m->t) * SP, m->p.y += sin(m->t) * SP);
-	(ok(m, k) == 2) && (m->p.x -= cos(m->t + PD) * SP, m->p.y -= sin(m->t + PD)
-			* SP);
-	(!ok(m, k)) && (m->p.x += cos(m->t + PD) * SP, m->p.y += sin(m->t + PD)
-			* SP);
-	(ok(m, k) == 1) && (m->p.x -= cos(m->t + PI) * SP, m->p.y -= sin(m->t + PI)
-			* SP);
-	(ok(m, k) == 13) && (m->p.x += cos(m->t + PI) * SP, m->p.y += sin(m->t + PI)
-			* SP);
+	(ok(m, k) == 125) && (m->p.x -= cos(t) * S, m->p.y -= sin(t) * S);
+	(ok(m, k) == 126) && (m->p.x += cos(t) * S, m->p.y += sin(t) * S);
+	(ok(m, k) == 2) && (m->p.x -= cos(t + PD) * S, m->p.y -= sin(t + PD) * S);
+	(!ok(m, k)) && (m->p.x += cos(t + PD) * S, m->p.y += sin(t + PD) * S);
+	(ok(m, k) == 1) && (m->p.x -= cos(t + PI) * S, m->p.y -= sin(t + PI) * S);
+	(ok(m, k) == 13) && (m->p.x += cos(t + PI) * S, m->p.y += sin(t + PI) * S);
 	put_ply(m, m->p, YELLOW);
-	rays(m, GREEN);
-	printf("angle->%d \n", (int)(m->t * 180 / PI));
+	rays(*m, 0, 0, GREEN);
 	mlx_put_image_to_window(m->mx, m->wn, m->im.p, 0, 0);
 	return (0);
 }
