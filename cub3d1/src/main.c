@@ -6,7 +6,7 @@
 /*   By: ajari <ajari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 16:04:31 by ajari             #+#    #+#             */
-/*   Updated: 2023/05/29 17:43:37 by ajari            ###   ########.fr       */
+/*   Updated: 2023/05/29 18:35:44 by ajari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,15 +42,15 @@ int	move_key(int k, t_lst *m)
 		exit(0);
 	rays(*m, 0, 0, BLACK);
 	var_angle(k, m);
-	put_ply(m, m->p, BLACK);
+	//put_ply(m, m->p, BLACK);
 	(ok(m, k) == 125) && (m->p.x -= cos(t) * S, m->p.y -= sin(t) * S);
 	(ok(m, k) == 126) && (m->p.x += cos(t) * S, m->p.y += sin(t) * S);
 	(ok(m, k) == 2) && (m->p.x -= cos(t + PD) * S, m->p.y -= sin(t + PD) * S);
 	(!ok(m, k)) && (m->p.x += cos(t + PD) * S, m->p.y += sin(t + PD) * S);
 	(ok(m, k) == 1) && (m->p.x -= cos(t + PI) * S, m->p.y -= sin(t + PI) * S);
 	(ok(m, k) == 13) && (m->p.x += cos(t + PI) * S, m->p.y += sin(t + PI) * S);
-	put_ply(m, m->p, YELLOW);
-	rays(*m, 0, 0, GREEN);
+	//put_ply(m, m->p, YELLOW);
+	rays(*m, 0, 0, BLUE);
 	mlx_put_image_to_window(m->mx, m->wn, m->im.p, 0, 0);
 	return (0);
 }
@@ -62,10 +62,11 @@ int	main(int ac, char **av)
 	(void)ac;
 	m.mx = mlx_init();
 	fill_map(av[1], &m, open(av[1], O_RDONLY, 0777), 0);
-	m.wn = mlx_new_window(m.mx, SQ * m.len, m.s_lin * SQ, "My Cub3D");
-	m.im.p = mlx_new_image(m.mx, SQ * m.len, m.s_lin * SQ);
+	m.wn = mlx_new_window(m.mx, WIE, HIE, "My Cub3D");
+	m.im.p = mlx_new_image(m.mx, WIE, HIE);
 	m.im.ad = mlx_get_data_addr(m.im.p, &m.im.b_pxl, &m.im.ln_len, &m.im.edn);
-	//putwindow(&m, m.map, 0, 0);
+	putwindow(&m, m.map, 0, 0);
+	rays(m, 0, 0, GREEN);
 	mlx_hook(m.wn, 2, 0, move_key, &m);
 	mlx_loop(m.mx);
 }

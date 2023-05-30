@@ -6,7 +6,7 @@
 /*   By: ajari <ajari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 07:25:19 by ajari             #+#    #+#             */
-/*   Updated: 2023/05/23 16:59:41 by ajari            ###   ########.fr       */
+/*   Updated: 2023/05/29 18:47:21 by ajari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	draw_line(t_lst m, t_pos p1, t_pos p2, int color)
 		i = 0;
 		// cord("go  ", p1.x, p1.y);
 		my_mlxput_pixel(m, p1.x, p1.y, color);
-		if (p1.x == p2.x && p1.y == p2.y)
+		if ((int)p1.x == (int)p2.x && (int)p1.y == (int)p2.y)
 			break ;
 		e2 = 2 * err;
 		if (e2 > -dy && (int)p1.x != (int)p2.x)

@@ -6,7 +6,7 @@
 /*   By: ajari <ajari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 10:36:20 by ajari             #+#    #+#             */
-/*   Updated: 2023/05/29 17:47:59 by ajari            ###   ########.fr       */
+/*   Updated: 2023/05/30 08:01:41 by ajari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ void	rays(t_lst m, double dh, double dv, int color)
 	double	v_y;
 
 	m.i = WIE / 2;
-	while (m.i--)
+	while (--m.i)
 	{
 		m.t -= (PI / 3) / WIE;
 		(m.t < 0) && (m.t = 2 * PI);
@@ -97,8 +97,13 @@ void	rays(t_lst m, double dh, double dv, int color)
 	{
 		dh = cord_horizo(m, &h_x, &h_y);
 		dv = cord_verti(m, &v_x, &v_y);
-		(dh < dv) && (v_x = h_x, v_y = h_y);
-		draw_line(m, m.p, (t_pos){v_x - 1, v_y - 1}, color);
+		//(dh < dv) && (v_x = h_x, v_y = h_y);
+		//dh = fabs((SQ * tan(PI / 3 / 2)) / dv);
+		(dh < dv) && (dv = dh);
+		dh = (2 * SQ * HIE / 2) / (dv);
+		((int)dh > HIE) && (dh = HIE - 1);
+		printf("d = %d \n x %d \n ", (int)dh, m.i);
+		draw_line(m, (t_pos){m.i, 0}, (t_pos){m.i, dh}, color);
 		m.i++;
 		m.t += (PI / 3) / WIE;
 		(m.t > 2 * PI) && (m.t = 0);

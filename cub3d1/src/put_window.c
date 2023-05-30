@@ -6,7 +6,7 @@
 /*   By: ajari <ajari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 07:21:45 by ajari             #+#    #+#             */
-/*   Updated: 2023/05/23 11:44:26 by ajari            ###   ########.fr       */
+/*   Updated: 2023/05/29 18:04:01 by ajari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,12 +64,12 @@ void	putwindow(t_lst *m, char **p, int x, int y)
 			(p[y][x] == 'N') && (k = 1, m->t = PD);
 			(p[y][x] == 'E') && (k = 1, m->t = PI);
 			(p[y][x] == 'W') && (k = 1, m->t = 0);
-			(p[y][x] == '1') && (put_squart(*m, x, y));
+			//(p[y][x] == '1') && (put_squart(*m, x, y));
 			(k) && (m->p.x = x * SQ + SM, m->p.y = y * SQ + SM);
-			(k) && (put_ply(m, m->p, YELLOW));
+			//(k) && (put_ply(m, m->p, YELLOW));
 			x++;
 		}
 		y++;
 	}
-	mlx_put_image_to_window(m->mx, m->wn, m->im.p, 0, 0);
+	//mlx_put_image_to_window(m->mx, m->wn, m->im.p, 0, 0);
 }
