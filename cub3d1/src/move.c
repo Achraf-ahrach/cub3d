@@ -6,7 +6,7 @@
 /*   By: ajari <ajari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 07:20:55 by ajari             #+#    #+#             */
-/*   Updated: 2023/05/29 17:01:40 by ajari            ###   ########.fr       */
+/*   Updated: 2023/06/06 11:44:02 by ajari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,10 @@ int	ok(t_lst *m, int k)
 			* S);
 	if (k == 126 || k == 125 || !k || k == 13 || k == 1 || k == 2)
 	{
-		(m->map[(int)((y + PM) / SQ)][(int)((x + PM) / SQ)] == '1') && (k = -1);
-		(m->map[(int)((y + PM) / SQ)][(int)((x - PM) / SQ)] == '1') && (k = -1);
-		(m->map[(int)((y - PM) / SQ)][(int)((x + PM) / SQ)] == '1') && (k = -1);
-		(m->map[(int)((y - PM) / SQ)][(int)((x - PM) / SQ)] == '1') && (k = -1);
+		(m->map[(int)((y + PM) / J)][(int)((x + PM) / J)] == '1') && (k = -1);
+		(m->map[(int)((y + PM) / J)][(int)((x - PM) / J)] == '1') && (k = -1);
+		(m->map[(int)((y - PM) / J)][(int)((x + PM) / J)] == '1') && (k = -1);
+		(m->map[(int)((y - PM) / J)][(int)((x - PM) / J)] == '1') && (k = -1);
 	}
 	return (k);
 }
@@ -40,12 +40,12 @@ void	var_angle(int k, t_lst *m)
 {
 	if (k == 123)
 	{
-		m->t -= 0.08726646259;
+		m->t -= VAR_ANGLE;
 		(m->t < 0) && (m->t = 2 * PI);
 	}
 	if (k == 124)
 	{
-		m->t += 0.08726646259;
+		m->t += VAR_ANGLE;
 		(m->t > 2 * PI) && (m->t = 0);
 	}
 }

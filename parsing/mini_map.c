@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mini_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aahrach <aahrach@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ajari <ajari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 18:24:22 by aahrach           #+#    #+#             */
-/*   Updated: 2023/05/20 11:20:18 by aahrach          ###   ########.fr       */
+/*   Updated: 2023/06/06 11:28:54 by ajari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,13 +98,13 @@ void	mini_map(t_lst *list)
 	len_x = ft_strlen(list->map[0]);
 	while (list->map[++len_y])
 		;
-	//data.mlx = mlx_init();
-	//data.win = mlx_new_window(data.mlx, len_x * S, len_y * S, "achraf");
+	data.mlx = mlx_init();
+	data.win = mlx_new_window(data.mlx, len_x * S, len_y * S, "achraf");
 	data.img = mlx_new_image(data.mlx, 15 * S, 15 * S);
 	data.addr = mlx_get_data_addr(data.img, &data.bits_per_pixel,
 			&data.line_length, &data.endian);
 	img_mini_map(list, &data, len_x, len_y);
 	mlx_put_image_to_window(data.mlx, data.win, data.img, 0, 0);
 	//mlx_key_hook(data.win, key_hook, list);
-	mlx_loop(data.mlx);
+	//mlx_loop(data.mlx);
 }

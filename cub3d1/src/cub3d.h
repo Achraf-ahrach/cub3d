@@ -6,7 +6,7 @@
 /*   By: ajari <ajari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 16:06:09 by ajari             #+#    #+#             */
-/*   Updated: 2023/05/29 15:03:05 by ajari            ###   ########.fr       */
+/*   Updated: 2023/06/06 12:43:34 by ajari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,12 +75,15 @@ typedef struct s_lst
 # define WIE 1000
 # define HIE 800
 # define SQ 50
+# define J 20
 # define PI 3.14159265359
 # define PD PI / 2
 # define PL 6
 # define PM PL / 2
+# define VAR_ANGLE 0.2
 # define SM SQ / 2
 # define S 7
+# define IM "./textures/wallwhite.xpm"
 ///////////////////////// --fonctions get_line-- ///////////////////
 char		*get_next_line(int fd);
 char		*ft_substr(char const *s, unsigned int start, size_t len);
@@ -94,7 +97,7 @@ char		*ft_strdup(const char *s);
 void		my_mlxput_pixel(t_lst m, int x, int y, size_t color);
 int			put_squart(t_lst m, int x, int y);
 int			put_ply(t_lst *m, t_pos p, int color);
-void		putwindow(t_lst *m, char **p, int x, int y);
+void		putwindow(t_lst *m, char **p, int x, int y, int init);
 int			move(int k, t_lst *m);
 void		print(t_lst m);
 void		var_angle(int k, t_lst *m);
