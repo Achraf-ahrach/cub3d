@@ -6,7 +6,7 @@
 /*   By: ajari <ajari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 07:21:45 by ajari             #+#    #+#             */
-/*   Updated: 2023/06/07 16:18:14 by ajari            ###   ########.fr       */
+/*   Updated: 2023/06/07 17:09:21 by ajari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	get_positionplayer(t_lst *m, char **s)
 	}
 }
 
-int	put_squart(t_lst m, t_pos p, int x, int y, int color)
+int	put_squart(t_lst m, t_pos p, int x, int y)
 {
 	int	i;
 	int	j;
@@ -50,9 +50,7 @@ int	put_squart(t_lst m, t_pos p, int x, int y, int color)
 			if (x * J + i - p.x <= 200 && y * J + j - p.y <= 200)
 			{
 				if (i && j)
-					my_mlxput_pixel(m, x * J + i - p.x, y * J + j - p.y, color);
-				else
-					my_mlxput_pixel(m, x * J + i - p.x, y * J + j - p.y, BLACK);
+					my_mlxput_pixel(m, x * J + i - p.x, y * J + j - p.y, WHITE);
 			}
 			i++;
 		}
@@ -128,9 +126,7 @@ void	putwindow(t_lst m, char **p, int x, int y)
 		{
 			printf("%d\n", abs(i - x));
 			if (i < m.len && i >= 0 && j >= 0 && j < m.s_lin && p[j][i] == '1')
-				put_squart(m, (t_pos){k, l}, i - x, j - y, WHITE);
-			else
-				put_squart(m, (t_pos){k, l}, i - x, j - y, BLACK);
+				put_squart(m, (t_pos){k, l}, i - x, j - y);
 			i++;
 		}
 		j++;

@@ -6,54 +6,44 @@
 /*   By: ajari <ajari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 10:53:24 by aahrach           #+#    #+#             */
-/*   Updated: 2023/06/07 16:49:25 by ajari            ###   ########.fr       */
+/*   Updated: 2023/06/07 17:14:02 by ajari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
 
-# include "../libft/libft.h"
+# include "libft/libft.h"
 # include <fcntl.h>
+# include <limits.h>
+# include <math.h>
 # include <mlx.h>
 # include <stdio.h>
+# include <stdlib.h>
+# include <string.h>
 # include <unistd.h>
-
 ///////////////////*  parsing  *////////////////////////////
 
-# define R 0xFF0000
-# define B 0x0000FF
-# define L 0xFFFF00
-# define G 0x00FF00
-# define K 0xffffff
-# define S 25
-# define SP 6
-# define S_I 20
-
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: ajari <ajari@student.42.fr>                +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/19 16:06:09 by ajari             #+#    #+#             */
-/*   Updated: 2023/06/07 16:46:54 by ajari            ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-# ifndef CUB3D_H
-#  define CUB3D_H
-
-#  include "libft/libft.h"
-#  include <fcntl.h>
-#  include <limits.h>
-#  include <math.h>
-#  include <mlx.h>
-#  include <stdio.h>
-#  include <stdlib.h>
-#  include <string.h>
-#  include <unistd.h>
+# define RED 0xFF0000
+# define GREEN 0x00FF00
+# define BLUE 0x0000FF
+# define ORANGE 0xFFA500
+# define WHITE 0xFFFFFF
+# define MAGENTA 0x1E00F7
+# define CYAN 0x03C4D4
+# define YELLOW 0xFFF633
+# define BLACK 0x000000
+# define WIE 1000
+# define HIE 800
+# define SQ 50
+# define J 20
+# define PI 3.14159265359
+# define PD PI / 2
+# define PL 6
+# define PM PL / 2
+# define VAR_ANGLE 0.2
+# define SM SQ / 2
+# define S 7
 
 typedef struct s_pos
 {
@@ -91,31 +81,9 @@ typedef struct s_lst
 
 }			t_lst;
 
-#  ifndef BUFFER_SIZE
-#   define BUFFER_SIZE 1
-#  endif
-
-#  define RED 0xFF0000
-#  define GREEN 0x00FF00
-#  define BLUE 0x0000FF
-#  define ORANGE 0xFFA500
-#  define WHITE 0xFFFFFF
-#  define MAGENTA 0x1E00F7
-#  define CYAN 0x03C4D4
-#  define YELLOW 0xFFF633
-#  define BLACK 0x000000
-#  define WIE 1000
-#  define HIE 800
-#  define SQ 50
-#  define J 20
-#  define PI 3.14159265359
-#  define PD PI / 2
-#  define PL 6
-#  define PM PL / 2
-#  define VAR_ANGLE 0.2
-#  define SM SQ / 2
-#  define S 7
-#  define IM "./textures/wallwhite.xpm"
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 1
+# endif
 ///////////////////////// --fonctions get_line-- ///////////////////
 char		*get_next_line(int fd);
 char		*ft_substr(char const *s, unsigned int start, size_t len);
@@ -127,9 +95,11 @@ char		*ft_strdup(const char *s);
 
 ///////////////////////// --fonctions cub-- ////////////////////////
 void		my_mlxput_pixel(t_lst m, int x, int y, size_t color);
-int			put_squart(t_lst m, int x, int y);
-int			put_ply(t_lst *m, t_pos p, int color);
-void		putwindow(t_lst *m, char **p, int x, int y, int init);
+int			put_squart(t_lst m, t_pos p, int x, int y);
+int			put_ply(t_lst m, t_pos p, int color);
+void		get_positionplayer(t_lst *m, char **s);
+void		my_drawline(t_lst m, t_pos p1, t_pos p2);
+void		putwindow(t_lst m, char **p, int x, int y);
 int			move(int k, t_lst *m);
 void		print(t_lst m);
 void		var_angle(int k, t_lst *m);
@@ -153,4 +123,4 @@ void		mini_map(t_lst *list);
 
 ////////////////////////////////////////////////////////////
 
-# endif
+#endif

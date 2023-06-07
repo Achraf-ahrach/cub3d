@@ -1,27 +1,28 @@
 NAME = cub3d
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -fsanitize=address -g3
-SRCF = src
+SRCPA = src/parsing
+SRCRA = src/raycasting
 LIBFT = src/libft/libft.a
 LIB =  -lmlx -framework OpenGL -framework AppKit 
-SRC = $(wildcard $(SRCF)/*.c)
+SRCP = $(wildcard $(SRCPA)/*.c)
+SRCR = $(wildcard $(SRCRA)/*.c)
 
+echo:
+	echo $(SRCP)
 #print:
 #@echo $(SRC)
 
 all: $(NAME)
 
-$(NAME):$(SRC) $(LIBFT)
-	$(CC) $(CFLAGS) $(LIB) $(SRC) $(LIBFT)  -o $@
+$(NAME): $(SRCP) $(SRCR) $(LIBFT)
+	$(CC) $(CFLAGS) $(LIB) $(SRCP) $(SRCR) $(LIBFT)  -o $@
 
 $(OBJ):
 	mkdir $@
 
 $(LIBFT):
 	make all clean -C ./src/libft
-
-fcleanlib:
-	make fclean -C./src/libft
 
 clean:
 	rm -rf $(OBJ)
