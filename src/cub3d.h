@@ -6,7 +6,7 @@
 /*   By: ajari <ajari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 10:53:24 by aahrach           #+#    #+#             */
-/*   Updated: 2023/06/07 16:22:51 by ajari            ###   ########.fr       */
+/*   Updated: 2023/06/07 16:44:57 by ajari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ t_pos;
 # define S 25
 # define SP 6
 # define S_I 20
-# difine
 
 typedef struct s_data
 {
