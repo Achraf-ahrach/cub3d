@@ -6,11 +6,11 @@
 /*   By: ajari <ajari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 10:36:20 by ajari             #+#    #+#             */
-/*   Updated: 2023/06/06 12:32:47 by ajari            ###   ########.fr       */
+/*   Updated: 2023/06/07 16:18:15 by ajari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../cub3d.h"
 
 int	check_wall(t_lst m, double x, double y, int k)
 {
@@ -112,7 +112,7 @@ void	rays(t_lst m, double dh, double dv, int color)
 		draw_line(m, (t_pos){m.i, fabs(HIE / 2 - dh / 2)}, (t_pos){m.i, fabs(HIE
 					/ 2 - dh / 2 + dh)}, color);
 		m.i++;
-		m.t += (PI / 3) / WIE; 
+		m.t += (PI / 3) / WIE;
 		(m.t > 2 * PI) && (m.t = 0);
 	}
 }

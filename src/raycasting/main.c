@@ -6,11 +6,11 @@
 /*   By: ajari <ajari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 16:04:31 by ajari             #+#    #+#             */
-/*   Updated: 2023/06/06 22:12:04 by ajari            ###   ########.fr       */
+/*   Updated: 2023/06/07 16:18:11 by ajari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../cub3d.h"
 
 void	fill_map(char *name, t_lst *m, int fd, int i)
 {

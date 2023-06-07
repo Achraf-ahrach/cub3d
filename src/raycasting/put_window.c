@@ -6,11 +6,11 @@
 /*   By: ajari <ajari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 07:21:45 by ajari             #+#    #+#             */
-/*   Updated: 2023/06/06 22:15:28 by ajari            ###   ########.fr       */
+/*   Updated: 2023/06/07 16:18:14 by ajari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../cub3d.h"
 
 void	get_positionplayer(t_lst *m, char **s)
 {

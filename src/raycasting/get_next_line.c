@@ -6,11 +6,11 @@
 /*   By: ajari <ajari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 13:54:07 by ajari             #+#    #+#             */
-/*   Updated: 2023/05/22 20:40:28 by ajari            ###   ########.fr       */
+/*   Updated: 2023/06/07 16:18:10 by ajari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../cub3d.h"
 
 char	*ft_clear(char *ptr, char *s)
 {
