@@ -6,7 +6,7 @@
 /*   By: ajari <ajari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 07:21:45 by ajari             #+#    #+#             */
-/*   Updated: 2023/06/07 17:09:21 by ajari            ###   ########.fr       */
+/*   Updated: 2023/06/08 11:35:05 by ajari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	get_positionplayer(t_lst *m, char **s)
 			(s[j][i] == 'N') && (m->t = 3 * PD, k = 1);
 			(s[j][i] == 'E') && (m->t = 0, k = 1);
 			(s[j][i] == 'W') && (m->t = PI, k = 1);
-			(k) && (m->p.x = i * J + J / 2, m->p.y = j * J + J / 2);
+			(k) && (m->p.x = i * SQ + SQ / 2, m->p.y = j * SQ + SQ / 2);
 			i++;
 		}
 		j++;
@@ -42,15 +42,16 @@ int	put_squart(t_lst m, t_pos p, int x, int y)
 	int	j;
 
 	j = 0;
-	while (j < J)
+	while (j < SQ)
 	{
 		i = 0;
-		while (i < J)
+		while (i < SQ)
 		{
-			if (x * J + i - p.x <= 200 && y * J + j - p.y <= 200)
+			if (x * SQ + i - p.x <= 200 && y * SQ + j - p.y <= 200)
 			{
 				if (i && j)
-					my_mlxput_pixel(m, x * J + i - p.x, y * J + j - p.y, WHITE);
+					my_mlxput_pixel(m, x * SQ + i - p.x, y * SQ + j - p.y,
+							WHITE);
 			}
 			i++;
 		}
@@ -113,10 +114,10 @@ void	putwindow(t_lst m, char **p, int x, int y)
 	int i;
 	int j;
 
-	k = x % J;
-	l = y % J;
-	x = x / J - 5;
-	y = y / J - 5;
+	k = x % SQ;
+	l = y % SQ;
+	x = x / SQ - 5;
+	y = y / SQ - 5;
 	j = y;
 	put_miniblack(m);
 	while (abs(j - y) < 11)

@@ -3,10 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aahrach <aahrach@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ajari <ajari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 10:53:24 by aahrach           #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2023/06/08 13:09:51 by aahrach          ###   ########.fr       */
+=======
+/*   Updated: 2023/06/08 13:00:06 by ajari            ###   ########.fr       */
+>>>>>>> 1b3ca14592ba2066d6e03b2229d7ac8528048ca0
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +27,8 @@
 # include <string.h>
 # include <unistd.h>
 ///////////////////*  parsing  *////////////////////////////
-
+# define R "\033[0;31m"
+# define W "\033[0;37m"
 # define RED 0xFF0000
 # define GREEN 0x00FF00
 # define BLUE 0x0000FF
@@ -35,8 +40,7 @@
 # define BLACK 0x000000
 # define WIE 1000
 # define HIE 800
-# define SQ 50
-# define J 20
+# define SQ 20
 # define PI 3.14159265359
 # define PD PI / 2
 # define PL 6
@@ -122,7 +126,7 @@ char		*read_line(char *name_file, int fd);
 int			check_name_file(char *str);
 void		fill_in_struct(t_lst *list, char *tmp);
 void		mini_map(t_lst *list);
-
+t_lst		*list(int ac, char **env);
 ////////////////////////////////////////////////////////////
 
 #endif
