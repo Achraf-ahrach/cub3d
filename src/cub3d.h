@@ -6,7 +6,11 @@
 /*   By: ajari <ajari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 10:53:24 by aahrach           #+#    #+#             */
+<<<<<<< HEAD
+/*   Updated: 2023/06/08 13:09:51 by aahrach          ###   ########.fr       */
+=======
 /*   Updated: 2023/06/08 13:00:06 by ajari            ###   ########.fr       */
+>>>>>>> 1b3ca14592ba2066d6e03b2229d7ac8528048ca0
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +66,8 @@ typedef struct s_im
 
 typedef struct s_lst
 {
+	int		sx;
+	int		sy;
 	void	*mx;
 	void	*wn;
 	char	*no;
