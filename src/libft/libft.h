@@ -6,7 +6,7 @@
 /*   By: ajari <ajari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 09:55:47 by ajari             #+#    #+#             */
-/*   Updated: 2023/05/22 17:00:28 by ajari            ###   ########.fr       */
+/*   Updated: 2023/06/08 08:33:55 by ajari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 int		ft_putendl_fd(char *s, int fd);
 char	*ft_strchr(const char *s, int c);
-char	**ft_split(char *s, char c, int chiffre);
+char	**ft_split(char *s, char c);
 char	*ft_strrchr(const char *s, int c);
 void	*ft_calloc(size_t count, size_t size);
 void	*ft_memset(void *b, int c, size_t len);

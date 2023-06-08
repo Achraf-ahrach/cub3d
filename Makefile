@@ -8,10 +8,6 @@ LIB =  -lmlx -framework OpenGL -framework AppKit
 SRCP = $(wildcard $(SRCPA)/*.c)
 SRCR = $(wildcard $(SRCRA)/*.c)
 
-echo:
-	echo $(SRCP)
-#print:
-#@echo $(SRC)
 
 all: $(NAME)
 
