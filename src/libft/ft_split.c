@@ -3,69 +3,78 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ajari <ajari@student.42.fr>                +#+  +:+       +#+        */
+/*   By: aahrach <aahrach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 16:08:02 by ajari             #+#    #+#             */
-/*   Updated: 2023/06/08 08:32:31 by ajari            ###   ########.fr       */
+/*   Updated: 2023/06/08 09:24:31 by aahrach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	count_c(char *s, char c)
+static int	ft_check(char const *s, char c)
 {
-	size_t	i;
-	size_t	result;
+	int	i;
+	int	j;
 
 	i = 0;
-	result = 0;
-	while (s && s[i])
+	j = 0;
+	while (s[i])
 	{
-		if ((i == 0 && s[i] != c) || (s[i] == c && s[i + 1] != c && s[i + 1]))
-			result++;
-		i++;
+		if (s[i++] != c)
+		{
+			if (s[i] == c || s[i] == '\0')
+				j++;
+		}
 	}
-	return (result);
+	return (j);
 }
 
-static char	**ft_free(char **result, char *s, int i)
+static int	ft_hseb(const char *s, char c)
 {
-	while (i)
-		free(result[--i]);
-	free(result);
-	free(s);
-	return (0);
+	int	i;
+
+	i = 0;
+	while (s[i] != c && s[i])
+		i++;
+	return (i);
 }
 
-void	utils(char c, char *s, size_t *start, size_t *end)
+static void	*ft_free_all(char **p, int a)
 {
-	*start = *end;
-	while (s[*start] == c && s[*start])
-		*start += 1;
-	*end = *start;
-	while (s[*end] != c && s[*end])
-		*end += 1;
+	while (a >= 0)
+	{
+		free(p[a]);
+		a--;
+	}
+	free(p);
+	return (NULL);
 }
 
 char	**ft_split(char *s, char c)
 {
-	size_t	i;
-	char	**result;
-	size_t	start;
-	size_t	end;
+	char	**p;
+	int		a;
+	int		j;
 
-	i = 0;
-	end = 0;
+	a = 0;
 	if (!s)
 		return (NULL);
-	result = ft_calloc(count_c(s, c) + 1, sizeof(char *));
-	while (result && i < count_c(s, c))
+	j = ft_check(s, c);
+	p = malloc((j + 1) * sizeof(char *));
+	if (!p)
+		return (NULL);
+	while (a < j)
 	{
-		utils(c, s, &start, &end);
-		result[i++] = ft_substr(s, start, end - start);
-		if (!result[i - 1])
-			return (ft_free(result, s, i - 1));
+		while (*s == c && *s)
+			s++;
+		p[a] = ft_substr(s, 0, ft_hseb(s, c));
+		if (!p[a])
+			return (ft_free_all(p, a));
+		while (*s != c && *s != '\0')
+			s++;
+		a++;
 	}
-	free(s);
-	return (result);
+	p[a] = NULL;
+	return (p);
 }

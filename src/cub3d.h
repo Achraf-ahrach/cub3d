@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ajari <ajari@student.42.fr>                +#+  +:+       +#+        */
+/*   By: aahrach <aahrach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 10:53:24 by aahrach           #+#    #+#             */
-/*   Updated: 2023/06/07 17:14:02 by ajari            ###   ########.fr       */
+/*   Updated: 2023/06/08 08:48:47 by aahrach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ void		cord(char *s, double x, double y);
 ////////////////////////////////////////////////////////////////////
 
 void		ft_map(t_lst *list, char *str_map);
-void		ft_eroor(char *str);
+void		ft_error(char *str);
 void		north(t_lst *list, char **tmp);
 void		south(t_lst *list, char **tmp);
 void		west(t_lst *list, char **tmp);
