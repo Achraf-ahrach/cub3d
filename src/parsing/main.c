@@ -6,7 +6,7 @@
 /*   By: ajari <ajari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 22:28:34 by aahrach           #+#    #+#             */
-/*   Updated: 2023/06/08 11:50:38 by ajari            ###   ########.fr       */
+/*   Updated: 2023/06/08 11:58:00 by ajari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_error(char *str)
 	exit(1);
 }
 
-t_lst *list(int ac, char **env)
+t_lst	*list(int ac, char **env)
 {
 	t_lst	*list;
 	char	*map;
@@ -36,4 +36,5 @@ t_lst *list(int ac, char **env)
 	fill_in_struct(list, tmp);
 	if (!list->map)
 		ft_error("Error: THE MAP EMPTY !\n");
+	return (list);
 }

@@ -6,7 +6,7 @@
 /*   By: ajari <ajari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 10:53:24 by aahrach           #+#    #+#             */
-/*   Updated: 2023/06/08 11:48:43 by ajari            ###   ########.fr       */
+/*   Updated: 2023/06/08 13:00:06 by ajari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@
 # include <string.h>
 # include <unistd.h>
 ///////////////////*  parsing  *////////////////////////////
-
+# define R "\033[0;31m"
+# define W "\033[0;37m"
 # define RED 0xFF0000
 # define GREEN 0x00FF00
 # define BLUE 0x0000FF
@@ -119,7 +120,7 @@ char		*read_line(char *name_file, int fd);
 int			check_name_file(char *str);
 void		fill_in_struct(t_lst *list, char *tmp);
 void		mini_map(t_lst *list);
-
+t_lst		*list(int ac, char **env);
 ////////////////////////////////////////////////////////////
 
 #endif

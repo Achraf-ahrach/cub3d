@@ -6,7 +6,7 @@
 /*   By: ajari <ajari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 10:36:20 by ajari             #+#    #+#             */
-/*   Updated: 2023/06/08 11:45:44 by ajari            ###   ########.fr       */
+/*   Updated: 2023/06/08 13:06:36 by ajari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,14 @@ int	check_wall(t_lst m, double x, double y, int k)
 {
 	x = x / SQ;
 	y = y / SQ;
-	printf("x = %d y = %d \n", (int)y, (int)x);
-	if (m.t > PI && m.t < 2 * PI && k)
+	printf(R);
+	//printf("x = %d y = %d \n", (int)y, (int)x);
+	if (m.t > PI && m.t < 2 * PI && k && (int)y)
 		y--;
-	if (m.t > PD && m.t < 3 * PD && !k && x)
+	if (m.t > PD && m.t < 3 * PD && !k && (int)x)
 		x--;
-	printf("x = %d y = %d \n", (int)y, (int)x);
+	//printf(W);
+	//printf("x = %d y = %d \n", (int)y, (int)x);
 	if (y < 0 || y > m.s_lin || x < 0 || x > m.len
 		|| m.map[(int)y][(int)x] == '1')
 		return (1);
@@ -41,6 +43,7 @@ double	cord_horizo(t_lst m, double *x, double *y)
 	*x = m.p.x + fabs((*y - m.p.y) / tan(m.t));
 	(m.t > PD && m.t < 3 * PD) && (*x = fabs(m.p.x - (*y - m.p.y) / tan(m.t)));
 	(m.t > PD && m.t < 3 * PD) && (dx *= -1);
+	// cord("", *x, *y);
 	while (1)
 	{
 		if (check_wall(m, *x, *y, 1))
