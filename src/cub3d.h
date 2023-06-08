@@ -6,7 +6,7 @@
 /*   By: ajari <ajari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 10:53:24 by aahrach           #+#    #+#             */
-/*   Updated: 2023/06/07 17:14:02 by ajari            ###   ########.fr       */
+/*   Updated: 2023/06/08 11:31:19 by ajari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,7 @@
 # define BLACK 0x000000
 # define WIE 1000
 # define HIE 800
-# define SQ 50
-# define J 20
+# define SQ 20
 # define PI 3.14159265359
 # define PD PI / 2
 # define PL 6
