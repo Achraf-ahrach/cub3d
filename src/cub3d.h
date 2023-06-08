@@ -6,7 +6,7 @@
 /*   By: ajari <ajari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 10:53:24 by aahrach           #+#    #+#             */
-/*   Updated: 2023/06/08 11:31:19 by ajari            ###   ########.fr       */
+/*   Updated: 2023/06/08 11:48:43 by ajari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,7 @@ void		cord(char *s, double x, double y);
 ////////////////////////////////////////////////////////////////////
 
 void		ft_map(t_lst *list, char *str_map);
-void		ft_eroor(char *str);
+void		ft_error(char *str);
 void		north(t_lst *list, char **tmp);
 void		south(t_lst *list, char **tmp);
 void		west(t_lst *list, char **tmp);

@@ -6,7 +6,7 @@
 /*   By: aahrach <aahrach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 22:33:44 by aahrach           #+#    #+#             */
-/*   Updated: 2023/05/10 10:33:19 by aahrach          ###   ########.fr       */
+/*   Updated: 2023/06/08 08:45:51 by aahrach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ void	north(t_lst *list, char **tmp)
 	i = 0;
 	(*tmp) += 2;
 	if (**tmp != ' ')
-		ft_eroor("THE MAP IS NOT VALID !\n");
+		ft_error("THE MAP IS NOT VALID !\n");
 	if (list->no)
-		ft_eroor("THE TEXTURE DUPLICATE !\n");
+		ft_error("THE TEXTURE DUPLICATE !\n");
 	(*tmp)++;
 	while (tmp[0][i] != '\n')
 		i++;
@@ -42,9 +42,9 @@ void	south(t_lst *list, char **tmp)
 	i = 0;
 	(*tmp) += 2;
 	if (**tmp != ' ')
-		ft_eroor("THE MAP IS NOT VALID !\n");
+		ft_error("THE MAP IS NOT VALID !\n");
 	if (list->so)
-		ft_eroor("THE TEXTURE DUPLICATE !\n");
+		ft_error("THE TEXTURE DUPLICATE !\n");
 	(*tmp)++;
 	while (tmp[0][i] != '\n')
 		i++;
@@ -65,9 +65,9 @@ void	west(t_lst *list, char **tmp)
 	i = 0;
 	(*tmp) += 2;
 	if (**tmp != ' ')
-		ft_eroor("THE MAP IS NOT VALID !\n");
+		ft_error("THE MAP IS NOT VALID !\n");
 	if (list->we)
-		ft_eroor("THE TEXTURE DUPLICATE !\n");
+		ft_error("THE TEXTURE DUPLICATE !\n");
 	(*tmp)++;
 	while (tmp[0][i] != '\n')
 		i++;
@@ -88,9 +88,9 @@ void	east(t_lst *list, char **tmp)
 	i = 0;
 	(*tmp) += 2;
 	if (**tmp != ' ')
-		ft_eroor("THE MAP IS NOT VALID !\n");
+		ft_error("THE MAP IS NOT VALID !\n");
 	if (list->ea)
-		ft_eroor("THE TEXTURE DUPLICATE !\n");
+		ft_error("THE TEXTURE DUPLICATE !\n");
 	(*tmp)++;
 	while (tmp[0][i] != '\n')
 		i++;

@@ -6,7 +6,7 @@
 /*   By: aahrach <aahrach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 22:45:46 by aahrach           #+#    #+#             */
-/*   Updated: 2023/05/18 15:50:17 by aahrach          ###   ########.fr       */
+/*   Updated: 2023/06/08 11:46:02 by aahrach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,10 @@ char	*read_line(char *name_file, int fd)
 	char	*map;
 	char	buf[7];
 
+	p = NULL;
 	fd = open(name_file, O_RDONLY);
 	if (fd < 0)
-		ft_eroor("Error: OPEN FILE\n");
+		ft_error("Error: OPEN FILE\n");
 	p = ft_strdup("");
 	i = 0;
 	i = read(fd, buf, 6);
@@ -58,6 +59,7 @@ char	*read_line(char *name_file, int fd)
 		str = ft_strdup(buf);
 		map = ft_strjoin(p, str);
 		i = read(fd, buf, 6);
+		free(str);
 		p = map;
 	}
 	return (map);
@@ -76,9 +78,9 @@ void	fill_in_struct(t_lst *list, char *tmp)
 			west(list, &tmp);
 		else if (*tmp == 'E' && tmp[1] == 'A')
 			east(list, &tmp);
-		else if (*tmp == 'F' && tmp[1] && !list->f)
+		else if (*tmp == 'F' && tmp[1] && tmp[1] == ' ' && !list->f)
 			foort_ceiling(list, &tmp, 'f', 0);
-		else if (*tmp == 'C' && tmp[1] && !list->c)
+		else if (*tmp == 'C' && tmp[1] && tmp[1] == ' ' && !list->c)
 			foort_ceiling(list, &tmp, 'c', 0);
 		else if ((*tmp == ' ' || *tmp == '1') && list->no
 			&& list->so && list->we && list->ea && list->f && list->c)
@@ -87,7 +89,7 @@ void	fill_in_struct(t_lst *list, char *tmp)
 			break ;
 		}
 		else if (*tmp != '\n')
-			ft_eroor("Error in the map !\n");
+			ft_error("Error in the map !\n");
 		tmp++;
 	}
 }
