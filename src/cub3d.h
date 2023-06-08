@@ -6,7 +6,7 @@
 /*   By: aahrach <aahrach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 10:53:24 by aahrach           #+#    #+#             */
-/*   Updated: 2023/06/08 08:48:47 by aahrach          ###   ########.fr       */
+/*   Updated: 2023/06/08 13:09:51 by aahrach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,8 @@ typedef struct s_im
 
 typedef struct s_lst
 {
+	int		sx;
+	int		sy;
 	void	*mx;
 	void	*wn;
 	char	*no;

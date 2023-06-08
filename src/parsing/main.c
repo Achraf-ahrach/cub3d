@@ -6,7 +6,7 @@
 /*   By: aahrach <aahrach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 22:28:34 by aahrach           #+#    #+#             */
-/*   Updated: 2023/06/08 11:44:41 by aahrach          ###   ########.fr       */
+/*   Updated: 2023/06/08 13:12:39 by aahrach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,8 @@ int	main(int ac, char **env)
 	fill_in_struct(list, tmp);
 	if (!list->map)
 		ft_error("Error: THE MAP EMPTY !\n");
+	int i = -1;
+	while (list->map[++i])
+		printf("(%s)\n", list->map[i]);
 	//system("leaks cub3d");
 }
