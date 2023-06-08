@@ -6,7 +6,7 @@
 /*   By: ajari <ajari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 10:36:20 by ajari             #+#    #+#             */
-/*   Updated: 2023/06/08 13:20:17 by ajari            ###   ########.fr       */
+/*   Updated: 2023/06/08 14:18:57 by ajari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,16 @@ int	check_wall(t_lst m, double x, double y, int k)
 {
 	x = x / SQ;
 	y = y / SQ;
-	printf(R);
-	//printf("x = %d y = %d \n", (int)y, (int)x);
-	if (m.t > PI && m.t < 2 * PI && k && (int)y)
+	//printf(R);
+	//printf("x = %d y = %d \n", (int)x, (int)y);
+	if (m.t > PI && m.t < 2 * PI && k)
 		y--;
-	if (m.t > PD && m.t < 3 * PD && !k && (int)x)
+	if (m.t > PD && m.t < 3 * PD && !k)
 		x--;
 	//printf(W);
-	//printf("x = %d y = %d \n", (int)y, (int)x);
-	if (y < 0 || y > m.sy || x < 0 || x > m.sx || m.map[(int)y][(int)x] == '1')
+	//printf("x = %d y = %d \n", (int)x, (int)y);
+	//cord("#######", m.sx, m.sy);
+	if (y < 0 || y >= m.sy || x < 0 || x > m.sx || m.map[(int)y][(int)x] == '1')
 		return (1);
 	return (0);
 }
@@ -40,7 +41,7 @@ double	cord_horizo(t_lst m, double *x, double *y)
 	(m.t > 0 && m.t < PI) && (dy = SQ);
 	dx = fabs(dy / tan(m.t));
 	*x = m.p.x + fabs((*y - m.p.y) / tan(m.t));
-	(m.t > PD && m.t < 3 * PD) && (*x = fabs(m.p.x - (*y - m.p.y) / tan(m.t)));
+	(m.t > PD && m.t < 3 * PD) && (*x = m.p.x - fabs((*y - m.p.y) / tan(m.t)));
 	(m.t > PD && m.t < 3 * PD) && (dx *= -1);
 	// cord("", *x, *y);
 	while (1)
@@ -50,8 +51,8 @@ double	cord_horizo(t_lst m, double *x, double *y)
 		*y += dy;
 		*x += dx;
 	}
-	(*y > m.s_lin * SQ) && (*y = (m.s_lin - 1) * SQ);
-	(*x > m.len * SQ) && (*x = (m.len - 1) * SQ);
+	(*y > m.sy * SQ) && (*y = (m.sy - 1) * SQ);
+	(*x > m.sx * SQ) && (*x = (m.sx - 1) * SQ);
 	(*x < 0) && (*x = 0);
 	(*y < 0) && (*y = 0);
 	return (sqrt(pow(m.p.x - *x, 2) + pow(m.p.y - *y, 2)));
@@ -77,8 +78,8 @@ double	cord_verti(t_lst m, double *x, double *y)
 		*y += dy;
 		*x += dx;
 	}
-	(*y > m.s_lin * SQ) && (*y = (m.s_lin - 1) * SQ);
-	(*x > m.len * SQ) && (*x = (m.len - 1) * SQ);
+	(*y > m.sy * SQ) && (*y = (m.sy - 1) * SQ);
+	(*x > m.sx * SQ) && (*x = (m.sx - 1) * SQ);
 	(*x < 0) && (*x = 0);
 	(*y < 0) && (*y = 0);
 	return (sqrt(pow(m.p.x - *x, 2) + pow(m.p.y - *y, 2)));
@@ -103,16 +104,13 @@ void	rays(t_lst m, double dh, double dv, int color)
 	{
 		dh = cord_horizo(m, &h_x, &h_y);
 		dv = cord_verti(m, &v_x, &v_y);
-		//(dh < dv) && (v_x = h_x, v_y = h_y);
-		//dh = fabs((SQ * tan(PI / 3 / 2)) / dv);
 		(dh < dv) && (dv = dh);
-		dh = (2 * SQ * HIE / 2) / (dv);
+		//dh = (2 * SQ * HIE / 2) / (dv);
 		dh = fabs((SQ * 320) / (dv * cos(fabs(m.t - t))));
-		//printf("befor dh =%d \n", (int)dh);
+		//printf(R);
+		//printf("distance = %d\n", (int)dh);
 		if (dh + (HIE / 2 - dh / 2) > HIE)
-			dh = HIE - 1; //fabs(HIE / 2 - dh / 2) - 1;
-		//printf("after dh =%d \n", (int)dh);
-		//cord(">", fabs(HIE / 2 - dh / 2), fabs(HIE / 2 - dh / 2 + dh));
+			dh = HIE - 1;
 		draw_line(m, (t_pos){m.i, fabs(HIE / 2 - dh / 2)}, (t_pos){m.i, fabs(HIE
 					/ 2 - dh / 2 + dh)}, color);
 		m.i++;

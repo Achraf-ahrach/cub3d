@@ -6,7 +6,7 @@
 /*   By: ajari <ajari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 16:04:31 by ajari             #+#    #+#             */
-/*   Updated: 2023/06/08 13:05:09 by ajari            ###   ########.fr       */
+/*   Updated: 2023/06/08 13:43:09 by ajari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int	move_key(int k, t_lst *m)
 	t = m->t;
 	if (k == 53)
 		exit(0);
+	put_ply(*m, (t_pos){100, 100}, BLACK);
 	rays(*m, 0, 0, BLACK);
 	var_angle(k, m);
 	(ok(m, k) == 125) && (m->p.x -= cos(t) * S, m->p.y -= sin(t) * S);
@@ -53,6 +54,6 @@ int	main(int ac, char **av)
 	mlx_put_image_to_window(m->mx, m->wn, m->im.p, 0, 0);
 	rays(*m, 0, 0, BLUE);
 	put_ply(*m, (t_pos){100, 100}, RED);
-	mlx_hook(m->wn, 2, 0, move_key, &m);
+	mlx_hook(m->wn, 2, 0, move_key, m);
 	mlx_loop(m->mx);
 }
