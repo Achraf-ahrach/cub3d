@@ -6,7 +6,7 @@
 /*   By: ajari <ajari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 10:36:20 by ajari             #+#    #+#             */
-/*   Updated: 2023/06/08 13:06:36 by ajari            ###   ########.fr       */
+/*   Updated: 2023/06/08 13:20:17 by ajari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,7 @@ int	check_wall(t_lst m, double x, double y, int k)
 		x--;
 	//printf(W);
 	//printf("x = %d y = %d \n", (int)y, (int)x);
-	if (y < 0 || y > m.s_lin || x < 0 || x > m.len
-		|| m.map[(int)y][(int)x] == '1')
+	if (y < 0 || y > m.sy || x < 0 || x > m.sx || m.map[(int)y][(int)x] == '1')
 		return (1);
 	return (0);
 }
