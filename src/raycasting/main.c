@@ -6,7 +6,7 @@
 /*   By: ajari <ajari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 16:04:31 by ajari             #+#    #+#             */
-/*   Updated: 2023/06/07 16:18:11 by ajari            ###   ########.fr       */
+/*   Updated: 2023/06/07 17:17:02 by ajari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,23 +55,23 @@ int	move_key(int k, t_lst *m)
 	return (0);
 }
 
-int	main(int ac, char **av)
-{
-	t_lst m;
+// int	main(int ac, char **av)
+// {
+// 	t_lst m;
 
-	(void)ac;
-	m.mx = mlx_init();
-	fill_map(av[1], &m, open(av[1], O_RDONLY, 0777), 0);
-	m.wn = mlx_new_window(m.mx, WIE, HIE, "My Cub3D");
-	m.im.p = mlx_new_image(m.mx, WIE, HIE);
-	m.im.ad = mlx_get_data_addr(m.im.p, &m.im.b_pxl, &m.im.ln_len, &m.im.edn);
-	get_positionplayer(&m, m.map);
-	//putwindow(m, m.map, m.p.x, m.p.y);
-	my_drawline(m, (t_pos){0, 0}, (t_pos){1000, 800});
-	draw_line(m, (t_pos){0, 0 + 5}, (t_pos){1000, 800 + 5}, GREEN);
-	mlx_put_image_to_window(m.mx, m.wn, m.im.p, 0, 0);
-	//rays(m, 0, 0, GREEN);
-	put_ply(m, (t_pos){100, 100}, RED);
-	mlx_hook(m.wn, 2, 0, move_key, &m);
-	mlx_loop(m.mx);
-}
+// 	(void)ac;
+// 	m.mx = mlx_init();
+// 	fill_map(av[1], &m, open(av[1], O_RDONLY, 0777), 0);
+// 	m.wn = mlx_new_window(m.mx, WIE, HIE, "My Cub3D");
+// 	m.im.p = mlx_new_image(m.mx, WIE, HIE);
+// 	m.im.ad = mlx_get_data_addr(m.im.p, &m.im.b_pxl, &m.im.ln_len, &m.im.edn);
+// 	get_positionplayer(&m, m.map);
+// 	//putwindow(m, m.map, m.p.x, m.p.y);
+// 	my_drawline(m, (t_pos){0, 0}, (t_pos){1000, 800});
+// 	draw_line(m, (t_pos){0, 0 + 5}, (t_pos){1000, 800 + 5}, GREEN);
+// 	mlx_put_image_to_window(m.mx, m.wn, m.im.p, 0, 0);
+// 	//rays(m, 0, 0, GREEN);
+// 	put_ply(m, (t_pos){100, 100}, RED);
+// 	mlx_hook(m.wn, 2, 0, move_key, &m);
+// 	mlx_loop(m.mx);
+// }
