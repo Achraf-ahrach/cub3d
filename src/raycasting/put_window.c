@@ -6,7 +6,7 @@
 /*   By: ajari <ajari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 07:21:45 by ajari             #+#    #+#             */
-/*   Updated: 2023/06/08 11:35:05 by ajari            ###   ########.fr       */
+/*   Updated: 2023/06/08 13:48:55 by ajari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,8 +125,7 @@ void	putwindow(t_lst m, char **p, int x, int y)
 		i = x;
 		while (abs(i - x) < 11)
 		{
-			printf("%d\n", abs(i - x));
-			if (i < m.len && i >= 0 && j >= 0 && j < m.s_lin && p[j][i] == '1')
+			if (i < m.sx && i >= 0 && j >= 0 && j < m.sy && p[j][i] == '1')
 				put_squart(m, (t_pos){k, l}, i - x, j - y);
 			i++;
 		}
