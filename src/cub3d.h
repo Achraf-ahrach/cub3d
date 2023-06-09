@@ -6,7 +6,7 @@
 /*   By: ajari <ajari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 10:53:24 by aahrach           #+#    #+#             */
-/*   Updated: 2023/06/08 13:24:57 by ajari            ###   ########.fr       */
+/*   Updated: 2023/06/08 17:45:58 by ajari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,7 @@ void		my_drawline(t_lst m, t_pos p1, t_pos p2);
 void		putwindow(t_lst m, char **p, int x, int y);
 int			move(int k, t_lst *m);
 void		print(t_lst m);
+double		get_angle(double t, double add, int i);
 void		var_angle(int k, t_lst *m);
 int			ok(t_lst *m, int k);
 void		draw_line(t_lst m, t_pos p1, t_pos p2, int color);

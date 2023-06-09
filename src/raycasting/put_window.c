@@ -6,7 +6,7 @@
 /*   By: ajari <ajari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 07:21:45 by ajari             #+#    #+#             */
-/*   Updated: 2023/06/08 13:48:55 by ajari            ###   ########.fr       */
+/*   Updated: 2023/06/08 17:45:19 by ajari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,37 +62,45 @@ int	put_squart(t_lst m, t_pos p, int x, int y)
 
 int	put_ply(t_lst m, t_pos p, int color)
 {
-	int	i;
-	int	j;
+	double	x;
+	double	y;
+	int		j;
+	int		i;
 
-	p.x -= PM;
-	p.y -= PM;
-	j = p.y;
-	while (p.y - j < PL)
+	i = WIE;
+	m.t = get_angle(m.t, (PI / 3) / WIE, WIE / 2);
+	while (i--)
 	{
-		i = p.x;
-		while (p.x - i < PL)
-			my_mlxput_pixel(m, p.x++, p.y, color);
-		p.x = i;
-		p.y++;
+		j = -1;
+		x = p.x;
+		y = p.y;
+		while (sqrt(pow(y - p.y, 2) + pow(x - p.x, 2)) < PL)
+		{
+			y -= sin(m.t);
+			x -= cos(m.t);
+			my_mlxput_pixel(m, x, y, color);
+		}
+		m.t += (PI / 3) / WIE;
+		(m.t > 2 * PI) && (m.t = 0);
 	}
-	mlx_put_image_to_window(m.mx, m.wn, m.im.p, 0, 0);
 	return (0);
 }
+
 void	put_miniblack(t_lst m)
 {
 	int	i;
 	int	j;
 
 	i = 0;
-	while (i < 200)
+	while (i <= 200)
 	{
 		j = 0;
-		while (j < 200)
+		while (j <= 200)
 			my_mlxput_pixel(m, i, j++, BLACK);
 		i++;
 	}
 }
+
 void	my_drawline(t_lst m, t_pos p1, t_pos p2)
 {
 	float	a;

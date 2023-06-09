@@ -6,11 +6,21 @@
 /*   By: ajari <ajari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 18:45:31 by ajari             #+#    #+#             */
-/*   Updated: 2023/06/07 16:18:17 by ajari            ###   ########.fr       */
+/*   Updated: 2023/06/08 17:31:04 by ajari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
+
+double	get_angle(double t, double add, int i)
+{
+	while (--i)
+	{
+		t -= add;
+		(t < 0) && (t = 2 * PI);
+	}
+	return (t);
+}
 
 void	my_mlxput_pixel(t_lst m, int x, int y, size_t color)
 {

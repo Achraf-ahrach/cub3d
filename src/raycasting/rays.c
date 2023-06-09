@@ -6,7 +6,7 @@
 /*   By: ajari <ajari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 10:36:20 by ajari             #+#    #+#             */
-/*   Updated: 2023/06/08 14:18:57 by ajari            ###   ########.fr       */
+/*   Updated: 2023/06/09 19:48:26 by ajari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,10 @@ int	check_wall(t_lst m, double x, double y, int k)
 {
 	x = x / SQ;
 	y = y / SQ;
-	//printf(R);
-	//printf("x = %d y = %d \n", (int)x, (int)y);
 	if (m.t > PI && m.t < 2 * PI && k)
 		y--;
 	if (m.t > PD && m.t < 3 * PD && !k)
 		x--;
-	//printf(W);
-	//printf("x = %d y = %d \n", (int)x, (int)y);
-	//cord("#######", m.sx, m.sy);
 	if (y < 0 || y >= m.sy || x < 0 || x > m.sx || m.map[(int)y][(int)x] == '1')
 		return (1);
 	return (0);
@@ -104,15 +99,12 @@ void	rays(t_lst m, double dh, double dv, int color)
 	{
 		dh = cord_horizo(m, &h_x, &h_y);
 		dv = cord_verti(m, &v_x, &v_y);
-		(dh < dv) && (dv = dh);
-		//dh = (2 * SQ * HIE / 2) / (dv);
-		dh = fabs((SQ * 320) / (dv * cos(fabs(m.t - t))));
-		//printf(R);
-		//printf("distance = %d\n", (int)dh);
+		(dh < dv) && (dv = dh, v_x = h_x, v_y = h_y);// cordination v_x and v_y of ray
+		dh = ceil(fabs((SQ * 320) / (dv * cos(fabs(m.t - t)))));
 		if (dh + (HIE / 2 - dh / 2) > HIE)
 			dh = HIE - 1;
-		draw_line(m, (t_pos){m.i, fabs(HIE / 2 - dh / 2)}, (t_pos){m.i, fabs(HIE
-					/ 2 - dh / 2 + dh)}, color);
+		draw_line(m, (t_pos){m.i, ceil(fabs(HIE / 2 - dh / 2))}, (t_pos){m.i,
+				ceil(fabs(HIE / 2 - dh / 2 + dh))}, color);
 		m.i++;
 		m.t += (PI / 3) / WIE;
 		(m.t > 2 * PI) && (m.t = 0);

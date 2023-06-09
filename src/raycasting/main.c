@@ -6,7 +6,7 @@
 /*   By: ajari <ajari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 16:04:31 by ajari             #+#    #+#             */
-/*   Updated: 2023/06/08 13:43:09 by ajari            ###   ########.fr       */
+/*   Updated: 2023/06/08 15:01:05 by ajari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ int	main(int ac, char **av)
 
 	(void)ac;
 	m = list(ac, av);
-	print(*m);
 	m->mx = mlx_init();
 	m->wn = mlx_new_window(m->mx, WIE, HIE, "My Cub3D");
 	m->im.p = mlx_new_image(m->mx, WIE, HIE);
