@@ -6,7 +6,7 @@
 /*   By: ajari <ajari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 10:36:20 by ajari             #+#    #+#             */
-/*   Updated: 2023/06/09 19:48:26 by ajari            ###   ########.fr       */
+/*   Updated: 2023/06/10 13:22:47 by ajari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,11 +100,10 @@ void	rays(t_lst m, double dh, double dv, int color)
 		dh = cord_horizo(m, &h_x, &h_y);
 		dv = cord_verti(m, &v_x, &v_y);
 		(dh < dv) && (dv = dh, v_x = h_x, v_y = h_y);// cordination v_x and v_y of ray
-		dh = ceil(fabs((SQ * 320) / (dv * cos(fabs(m.t - t)))));
+		dh = ceil(fabs((SQ * WIE) / (dv * cos(fabs(m.t - t)))));
 		if (dh + (HIE / 2 - dh / 2) > HIE)
 			dh = HIE - 1;
-		draw_line(m, (t_pos){m.i, ceil(fabs(HIE / 2 - dh / 2))}, (t_pos){m.i,
-				ceil(fabs(HIE / 2 - dh / 2 + dh))}, color);
+		draw_line(m, (t_pos){m.i, ceil(fabs(HIE / 2 - dh / 2))}, (t_pos){m.i, ceil(fabs(HIE / 2 - dh / 2 + dh))}, color);
 		m.i++;
 		m.t += (PI / 3) / WIE;
 		(m.t > 2 * PI) && (m.t = 0);
