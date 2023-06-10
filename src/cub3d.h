@@ -3,10 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ajari <ajari@student.42.fr>                +#+  +:+       +#+        */
+/*   By: aahrach <aahrach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 10:53:24 by aahrach           #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2023/06/10 13:24:29 by ajari            ###   ########.fr       */
+=======
+/*   Updated: 2023/06/10 15:04:12 by aahrach          ###   ########.fr       */
+>>>>>>> c040fe7f25a1303a1037b93a874c921c07abff6e
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,26 +64,38 @@ typedef struct s_im
 	int		edn;
 }			t_im;
 
+typedef struct s_textures
+{
+	void	*img;
+	int		w; //width
+	int		h; //height
+	t_im	im;
+}			t_textures;
+
 typedef struct s_lst
 {
-	int		sx;
-	int		sy;
-	void	*mx;
-	void	*wn;
-	char	*no;
-	char	*so;
-	char	*we;
-	char	*ea;
-	int		*f;
-	int		*c;
-	int		i;
-	char	**map;
-	char	orie;
-	int		s_lin;
-	int		len;
-	double	t;
-	t_pos	p;
-	t_im	im;
+	int			sx;
+	int			sy;
+	void		*mx;
+	void		*wn;
+	t_textures	*north;
+	t_textures	*south;
+	t_textures	*west;
+	t_textures	*east;
+	char		*no;
+	char		*so;
+	char		*we;
+	char		*ea;
+	int			*f;
+	int			*c;
+	int			i;
+	char		**map;
+	char		orie;
+	int			s_lin;
+	int			len;
+	double		t;
+	t_pos		p;
+	t_im		im;
 
 }			t_lst;
 

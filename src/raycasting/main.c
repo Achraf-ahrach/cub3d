@@ -3,14 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ajari <ajari@student.42.fr>                +#+  +:+       +#+        */
+/*   By: aahrach <aahrach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 16:04:31 by ajari             #+#    #+#             */
-/*   Updated: 2023/06/08 15:01:05 by ajari            ###   ########.fr       */
+/*   Updated: 2023/06/10 16:28:22 by aahrach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
+
+void	get_images(t_lst *m)
+{
+	m->north->img = mlx_xpm_file_to_image(m->mx, m->no, &m->north->w, &m->north->h);
+	m->south->img = mlx_xpm_file_to_image(m->mx, m->so, &m->south->w, &m->south->h);
+	m->west->img = mlx_xpm_file_to_image(m->mx, m->we, &m->west->w, &m->west->h);
+	m->east->img = mlx_xpm_file_to_image(m->mx, m->ea, &m->east->w, &m->east->h);
+	if (!m->north->img || !m->south->img || !m->west->img || !m->east->img)
+		ft_error("Error: open images\n");
+	m->north->im.ad = mlx_get_data_addr(m->north->img, &m->north->im.b_pxl, &m->north->im.ln_len, &m->north->im.edn);
+	m->south->im.ad = mlx_get_data_addr(m->south->img, &m->south->im.b_pxl, &m->south->im.ln_len, &m->south->im.edn);
+	m->west->im.ad = mlx_get_data_addr(m->west->img, &m->west->im.b_pxl, &m->west->im.ln_len, &m->west->im.edn);
+	m->east->im.ad = mlx_get_data_addr(m->east->img, &m->east->im.b_pxl, &m->east->im.ln_len, &m->east->im.edn);
+}
 
 int	move_key(int k, t_lst *m)
 {
@@ -42,6 +56,7 @@ int	main(int ac, char **av)
 	(void)ac;
 	m = list(ac, av);
 	m->mx = mlx_init();
+	get_images(m);
 	m->wn = mlx_new_window(m->mx, WIE, HIE, "My Cub3D");
 	m->im.p = mlx_new_image(m->mx, WIE, HIE);
 	m->im.ad = mlx_get_data_addr(m->im.p, &m->im.b_pxl, &m->im.ln_len,

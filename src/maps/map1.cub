@@ -1,15 +1,14 @@
-SO                 ./textures/path_to_the_south_texture                                           
+SO textures/whitewall.xpm
 
 F 255     ,        255   ,    255
 
 C 30,   10,  70
 
-NO                  ./textures/path_to_the_north_texture                            
+NO textures/whitewall.xpm
 
-WE                      ./textures/path_to_the_west_texture                   
+WE textures/whitewall.xpm
 
-
-EA  ./textures/row.xpm
+EA textures/whitewall.xpm
 
 
 
