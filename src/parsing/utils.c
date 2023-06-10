@@ -6,7 +6,7 @@
 /*   By: aahrach <aahrach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 22:45:46 by aahrach           #+#    #+#             */
-/*   Updated: 2023/06/08 13:18:03 by aahrach          ###   ########.fr       */
+/*   Updated: 2023/06/10 13:01:51 by aahrach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 
 void	ft_init(t_lst *list)
 {
+	list->north = malloc(sizeof(t_textures));
+	list->south = malloc(sizeof(t_textures));
+	list->west = malloc(sizeof(t_textures));
+	list->east = malloc(sizeof(t_textures));
 	list->sx = 0;
 	list->sy = 0;
 	list->map = NULL;
