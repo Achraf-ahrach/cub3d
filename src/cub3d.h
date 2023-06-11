@@ -6,7 +6,7 @@
 /*   By: aahrach <aahrach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 10:53:24 by aahrach           #+#    #+#             */
-/*   Updated: 2023/06/10 15:04:12 by aahrach          ###   ########.fr       */
+/*   Updated: 2023/06/11 10:27:40 by aahrach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,15 @@
 # define W "\033[0;37m"
 # define RED 0xFF0000
 # define GREEN 0x00FF00
-# define BLUE 0x0000FF
+# define BLUE 0x87CEEB
 # define ORANGE 0xFFA500
 # define WHITE 0xFFFFFF
 # define MAGENTA 0x1E00F7
 # define CYAN 0x03C4D4
 # define YELLOW 0xFFF633
 # define BLACK 0x000000
-# define WIE 1000
+# define WIE 1200
+# define ACHRAF 0xcd8500
 # define HIE 800
 # define SQ 20
 # define PI 3.14159265359

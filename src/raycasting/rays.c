@@ -6,7 +6,7 @@
 /*   By: aahrach <aahrach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 10:36:20 by ajari             #+#    #+#             */
-/*   Updated: 2023/06/10 18:06:42 by aahrach          ###   ########.fr       */
+/*   Updated: 2023/06/11 10:27:50 by aahrach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,22 +87,23 @@ unsigned int	get_color(t_lst m, int x, int y)
 	if (x < 0 || y < 0 || x >= m.north->w || y >= m.north->h)
 		return YELLOW;
 	offset = y * m.north->im.ln_len + x * (m.north->im.b_pxl / 8);
-	return *((unsigned int *)(m.im.ad + offset));
+	return *((unsigned int *)(m.north->im.ad + offset));
 }
 
 void	texters(t_lst m, double dh, double v_x, double v_y)
 {
-	int			start;
-	int			end;
-	float		x;
-	float		y;
-	float		offy = m.north->h / dh;
+	double			start;
+	double			end;
+	float			x;
+	float			y;
+	float			offy;
 	unsigned int	color;
 
 	y = 0;
+	offy = m.north->h / dh;
 	start = ceil(fabs(HIE / 2 - dh / 2));
 	end = start + dh;
-	x = (int)(m.north->w * (v_x + v_y / 20)) % m.north->w;
+	x = (int)(m.north->w * ((v_x + v_y) / 20)) % m.north->w;
 	while (start < end)
 	{
 		color = get_color(m, x, y);
@@ -110,7 +111,6 @@ void	texters(t_lst m, double dh, double v_x, double v_y)
 		y += offy;
 		start++;
 	}
-	//printf("%f ---- %f --- %f\n", y, x, v_x + v_y);
 }
 
 void	rays(t_lst m, double dh, double dv, int color)
@@ -135,11 +135,12 @@ void	rays(t_lst m, double dh, double dv, int color)
 		dv = cord_verti(m, &v_x, &v_y);
 		(dh < dv) && (dv = dh, v_x = h_x, v_y = h_y);// cordination v_x and v_y of ray
 		dh = ceil(fabs((SQ * 320) / (dv * cos(fabs(m.t - t)))));
+		dh *= 2;
 		if (dh + (HIE / 2 - dh / 2) > HIE)
 			dh = HIE - 1;
-		draw_line(m, (t_pos){m.i, ceil(fabs(HIE / 2 - dh / 2))}, (t_pos){m.i,
-				ceil(fabs(HIE / 2 - dh / 2 + dh))}, color);
+		draw_line(m, (t_pos){m.i, 0}, (t_pos){m.i, ceil(fabs(HIE / 2 - dh / 2))}, BLUE);
 		texters(m, dh, v_x, v_y);
+		draw_line(m, (t_pos){m.i, ceil(fabs(HIE / 2 - dh / 2 + dh))}, (t_pos){m.i, HIE - 1}, ACHRAF);
 		m.i++;
 		m.t += (PI / 3) / WIE;
 		(m.t > 2 * PI) && (m.t = 0);
