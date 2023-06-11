@@ -6,7 +6,11 @@
 /*   By: ajari <ajari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 10:53:24 by aahrach           #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2023/06/10 21:34:28 by ajari            ###   ########.fr       */
+=======
+/*   Updated: 2023/06/11 12:10:28 by aahrach          ###   ########.fr       */
+>>>>>>> 233e795909fd5e1b8a2c8b6d2fcdcfae535ec63a
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +31,14 @@
 # define W "\033[0;37m"
 # define RED 0xFF0000
 # define GREEN 0x00FF00
-# define BLUE 0x0000FF
+# define BLUE 0x87CEEB
 # define ORANGE 0xFFA500
 # define WHITE 0xFFFFFF
 # define MAGENTA 0x1E00F7
 # define CYAN 0x03C4D4
 # define YELLOW 0xFFF633
 # define BLACK 0x000000
-# define WIE 1000
+# define WIE 1200
 # define HIE 800
 # define SQ 20
 # define PI 3.14159265359
@@ -112,13 +116,13 @@ void		my_mlxput_pixel(t_lst m, int x, int y, size_t color);
 int			put_squart(t_lst m, t_pos p, int x, int y);
 int			put_ply(t_lst m, t_pos p, int color);
 void		get_positionplayer(t_lst *m, char **s);
+// void		my_drawline(t_lst m, t_pos p1, t_pos p2);
 void		putwindow(t_lst m, char **p, int x, int y);
 int			move(int k, t_lst *m);
 void		print(t_lst m);
 double		get_angle(double t, double add, int i);
 void		var_angle(int k, t_lst *m);
 int			ok(t_lst *m, int k);
-void	my_drawline(t_lst m, t_pos p1, t_pos p2, int color);
 void		draw_line(t_lst m, t_pos p1, t_pos p2, int color);
 void		rays(t_lst m, double dh, double dv, int color);
 void		cord(char *s, double x, double y);
