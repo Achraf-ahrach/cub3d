@@ -3,14 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rays.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aahrach <aahrach@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ajari <ajari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 10:36:20 by ajari             #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2023/06/10 13:22:47 by ajari            ###   ########.fr       */
-=======
-/*   Updated: 2023/06/10 18:06:42 by aahrach          ###   ########.fr       */
->>>>>>> c040fe7f25a1303a1037b93a874c921c07abff6e
+/*   Updated: 2023/06/10 21:34:45 by ajari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,13 +137,9 @@ void	rays(t_lst m, double dh, double dv, int color)
 		dh = ceil(fabs((SQ * WIE) / (dv * cos(fabs(m.t - t)))));
 		if (dh + (HIE / 2 - dh / 2) > HIE)
 			dh = HIE - 1;
-<<<<<<< HEAD
-		draw_line(m, (t_pos){m.i, ceil(fabs(HIE / 2 - dh / 2))}, (t_pos){m.i, ceil(fabs(HIE / 2 - dh / 2 + dh))}, color);
-=======
 		draw_line(m, (t_pos){m.i, ceil(fabs(HIE / 2 - dh / 2))}, (t_pos){m.i,
 				ceil(fabs(HIE / 2 - dh / 2 + dh))}, color);
 		texters(m, dh, v_x, v_y);
->>>>>>> c040fe7f25a1303a1037b93a874c921c07abff6e
 		m.i++;
 		m.t += (PI / 3) / WIE;
 		(m.t > 2 * PI) && (m.t = 0);
