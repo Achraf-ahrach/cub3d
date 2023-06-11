@@ -6,7 +6,7 @@
 /*   By: aahrach <aahrach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 10:53:24 by aahrach           #+#    #+#             */
-/*   Updated: 2023/06/11 10:27:40 by aahrach          ###   ########.fr       */
+/*   Updated: 2023/06/11 12:10:28 by aahrach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@
 # define YELLOW 0xFFF633
 # define BLACK 0x000000
 # define WIE 1200
-# define ACHRAF 0xcd8500
 # define HIE 800
 # define SQ 20
 # define PI 3.14159265359
@@ -113,7 +112,7 @@ void		my_mlxput_pixel(t_lst m, int x, int y, size_t color);
 int			put_squart(t_lst m, t_pos p, int x, int y);
 int			put_ply(t_lst m, t_pos p, int color);
 void		get_positionplayer(t_lst *m, char **s);
-void		my_drawline(t_lst m, t_pos p1, t_pos p2);
+// void		my_drawline(t_lst m, t_pos p1, t_pos p2);
 void		putwindow(t_lst m, char **p, int x, int y);
 int			move(int k, t_lst *m);
 void		print(t_lst m);

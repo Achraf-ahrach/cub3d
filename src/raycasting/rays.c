@@ -6,7 +6,7 @@
 /*   By: aahrach <aahrach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 10:36:20 by ajari             #+#    #+#             */
-/*   Updated: 2023/06/11 10:27:50 by aahrach          ###   ########.fr       */
+/*   Updated: 2023/06/11 12:10:01 by aahrach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,7 +140,7 @@ void	rays(t_lst m, double dh, double dv, int color)
 			dh = HIE - 1;
 		draw_line(m, (t_pos){m.i, 0}, (t_pos){m.i, ceil(fabs(HIE / 2 - dh / 2))}, BLUE);
 		texters(m, dh, v_x, v_y);
-		draw_line(m, (t_pos){m.i, ceil(fabs(HIE / 2 - dh / 2 + dh))}, (t_pos){m.i, HIE - 1}, ACHRAF);
+		draw_line(m, (t_pos){m.i, ceil(fabs(HIE / 2 - dh / 2 + dh))}, (t_pos){m.i, HIE - 1}, WHITE);
 		m.i++;
 		m.t += (PI / 3) / WIE;
 		(m.t > 2 * PI) && (m.t = 0);

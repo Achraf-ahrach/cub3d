@@ -6,7 +6,7 @@
 /*   By: ajari <ajari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 07:21:45 by ajari             #+#    #+#             */
-/*   Updated: 2023/06/08 17:45:19 by ajari            ###   ########.fr       */
+/*   Updated: 2023/06/09 20:18:24 by ajari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,17 +101,17 @@ void	put_miniblack(t_lst m)
 	}
 }
 
-void	my_drawline(t_lst m, t_pos p1, t_pos p2)
+void	my_drawline(t_lst m, t_pos p1, t_pos p2, int color)
 {
 	float	a;
 	float	b;
 
 	a = (p1.y - p2.y) / (p1.x - p2.x);
 	b = -a * p1.x + p1.y;
-	while (p1.x != p2.x && p1.y != p1.y)
+	while (p1.x != p2.x || p1.y != p1.y)
 	{
 		p1.y = a * p1.x + b;
-		my_mlxput_pixel(m, ceil(p1.x), ceil(p1.y), ORANGE);
+		my_mlxput_pixel(m, ceil(p1.x), ceil(p1.y), color);
 		p1.x++;
 	}
 }
