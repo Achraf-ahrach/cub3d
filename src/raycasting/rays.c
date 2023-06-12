@@ -6,7 +6,7 @@
 /*   By: aahrach <aahrach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 10:36:20 by ajari             #+#    #+#             */
-/*   Updated: 2023/06/11 12:10:01 by aahrach          ###   ########.fr       */
+/*   Updated: 2023/06/11 16:00:41 by aahrach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ double	cord_verti(t_lst m, double *x, double *y)
 	*x = (int)(m.p.x / SQ) * SQ;
 	(m.t < PD || m.t > 3 * PD) && (*x += SQ);
 	(m.t > PD && m.t < 3 * PD) && (dx = -SQ);
-	dy = fabs(dx * tan(m.t));
+	dy = fabs(dx * tan(m.t)); 
 	*y = m.p.y - fabs((*x - m.p.x) * tan(m.t));
 	(m.t > 0 && m.t < PI) && (*y = m.p.y + fabs((*x - m.p.x) * tan(m.t)));
 	(m.t > PI) && (dy *= -1);
@@ -94,14 +94,14 @@ void	texters(t_lst m, double dh, double v_x, double v_y)
 {
 	double			start;
 	double			end;
-	float			x;
+	int				x;
 	float			y;
 	float			offy;
 	unsigned int	color;
 
 	y = 0;
 	offy = m.north->h / dh;
-	start = ceil(fabs(HIE / 2 - dh / 2));
+	start = ceil(HIE / 2 - dh / 2);
 	end = start + dh;
 	x = (int)(m.north->w * ((v_x + v_y) / 20)) % m.north->w;
 	while (start < end)
@@ -136,8 +136,6 @@ void	rays(t_lst m, double dh, double dv, int color)
 		(dh < dv) && (dv = dh, v_x = h_x, v_y = h_y);// cordination v_x and v_y of ray
 		dh = ceil(fabs((SQ * 320) / (dv * cos(fabs(m.t - t)))));
 		dh *= 2;
-		if (dh + (HIE / 2 - dh / 2) > HIE)
-			dh = HIE - 1;
 		draw_line(m, (t_pos){m.i, 0}, (t_pos){m.i, ceil(fabs(HIE / 2 - dh / 2))}, BLUE);
 		texters(m, dh, v_x, v_y);
 		draw_line(m, (t_pos){m.i, ceil(fabs(HIE / 2 - dh / 2 + dh))}, (t_pos){m.i, HIE - 1}, WHITE);

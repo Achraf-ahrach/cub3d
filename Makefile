@@ -1,17 +1,18 @@
 NAME = cub3d
-CC = gcc
-CFLAGS = -Wall -Wextra -Werror -fsanitize=address -g3
+CC = cc
+CFLAGS = -Wall -Wextra -Werror #-fsanitize=address -g3
 SRCPA = src/parsing
 SRCRA = src/raycasting
 LIBFT = src/libft/libft.a
-LIB =  -lmlx -framework OpenGL -framework AppKit 
+MLX = minilibx_opengl/libmlx.a
+LIB =  -lmlx -framework OpenGL -framework AppKit #-O3
 SRCP = $(wildcard $(SRCPA)/*.c)
 SRCR = $(wildcard $(SRCRA)/*.c)
 
 
 all: $(NAME)
 
-$(NAME): $(SRCP) $(SRCR) $(LIBFT)
+$(NAME): $(SRCP) $(SRCR) $(LIBFT) $(MLX)
 	$(CC) $(CFLAGS) $(LIB) $(SRCP) $(SRCR) $(LIBFT)  -o $@
 
 $(OBJ):

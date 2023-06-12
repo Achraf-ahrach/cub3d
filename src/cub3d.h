@@ -6,7 +6,7 @@
 /*   By: aahrach <aahrach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 10:53:24 by aahrach           #+#    #+#             */
-/*   Updated: 2023/06/11 12:10:28 by aahrach          ###   ########.fr       */
+/*   Updated: 2023/06/11 22:12:43 by aahrach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,11 @@
 # define CUB3D_H
 
 # include "libft/libft.h"
+# include "../minilibx_opengl/mlx.h"
+# include "../minilibx_opengl/mlx_png.h"
+# include "../minilibx_opengl/mlx_opengl.h"
+# include "../minilibx_opengl/mlx_new_window.h"
+# include "../minilibx_opengl/mlx_int.h"
 # include <fcntl.h>
 # include <limits.h>
 # include <math.h>
@@ -34,7 +39,7 @@
 # define CYAN 0x03C4D4
 # define YELLOW 0xFFF633
 # define BLACK 0x000000
-# define WIE 1200
+# define WIE 1000
 # define HIE 800
 # define SQ 20
 # define PI 3.14159265359

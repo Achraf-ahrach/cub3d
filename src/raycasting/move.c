@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ajari <ajari@student.42.fr>                +#+  +:+       +#+        */
+/*   By: aahrach <aahrach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 07:20:55 by ajari             #+#    #+#             */
-/*   Updated: 2023/06/08 11:35:09 by ajari            ###   ########.fr       */
+/*   Updated: 2023/06/11 16:11:55 by aahrach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ int	ok(t_lst *m, int k)
 
 	(k == 125) && (x = m->p.x - cos(m->t) * S, y = m->p.y - sin(m->t) * S);
 	(k == 126) && (x = m->p.x + cos(m->t) * S, y = m->p.y + sin(m->t) * S);
-	(!k) && (x = m->p.x + cos(m->t + PD) * S, y = m->p.y + sin(m->t + PD) * S);
-	(k == 2) && (x = m->p.x - cos(m->t + PD) * S, y = m->p.y - sin(m->t + PD)
+	(k == 2) && (x = m->p.x + cos(m->t + PD) * S, y = m->p.y + sin(m->t + PD) * S);
+	(k == 0) && (x = m->p.x - cos(m->t + PD) * S, y = m->p.y - sin(m->t + PD)
 			* S);
-	(k == 1) && (x = m->p.x - cos(m->t + PI) * S, y = m->p.y - sin(m->t + PI)
+	(k == 13) && (x = m->p.x - cos(m->t + PI) * S, y = m->p.y - sin(m->t + PI)
 			* S);
-	(k == 13) && (x = m->p.x + cos(m->t + PI) * S, y = m->p.y + sin(m->t + PI)
+	(k == 1) && (x = m->p.x + cos(m->t + PI) * S, y = m->p.y + sin(m->t + PI)
 			* S);
 	if (k == 126 || k == 125 || !k || k == 13 || k == 1 || k == 2)
 	{
