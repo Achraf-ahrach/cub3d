@@ -6,7 +6,7 @@
 /*   By: aahrach <aahrach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 16:04:31 by ajari             #+#    #+#             */
-/*   Updated: 2023/06/11 20:55:09 by aahrach          ###   ########.fr       */
+/*   Updated: 2023/06/14 15:40:17 by aahrach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,16 +51,16 @@ int	move_key(int k, t_lst *m)
 
 int	mousemove(int x, int y, t_lst *m)
 {
-	printf("x = %d  y = %d\n",x,  y);
+	(void)y;
 	if (x < 0 || y < 0 || x > WIE || y > HIE)
 		return (0);
-	if (x < WIE / 2) // limen
+	if (x < m->old_p) // limen
 		move_key(123, m);
-	// 	var_angle(123, m);
-	else if (x > WIE / 2) //liser
+	else if (x > m->old_p) //liser
 		move_key(124, m);
-	// 	var_angle(124, m);
-	mlx_mouse_move(m->wn, 0, 0);
+	// if (x < 0 || y < 0 || x > WIE || y > HIE)
+	// 	mlx_mouse_move(m->wn, WIE / 2, HIE / 2);
+	m->old_p = x;
 	return (0);
 }
 
@@ -76,6 +76,7 @@ int	main(int ac, char **av)
 	m->im.p = mlx_new_image(m->mx, WIE, HIE);
 	m->im.ad = mlx_get_data_addr(m->im.p, &m->im.b_pxl, &m->im.ln_len,
 			&m->im.edn);
+	//mlx_mouse_hide();
 	get_positionplayer(m, m->map);
 	// putwindow(*m, m->map, m->p.x, m->p.y);
 	//my_drawline(m, (t_pos){0, 0}, (t_pos){1000, 800});

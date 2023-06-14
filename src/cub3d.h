@@ -6,7 +6,7 @@
 /*   By: aahrach <aahrach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 10:53:24 by aahrach           #+#    #+#             */
-/*   Updated: 2023/06/11 22:12:43 by aahrach          ###   ########.fr       */
+/*   Updated: 2023/06/14 13:00:15 by aahrach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 # define CUB3D_H
 
 # include "libft/libft.h"
-# include "../minilibx_opengl/mlx.h"
-# include "../minilibx_opengl/mlx_png.h"
-# include "../minilibx_opengl/mlx_opengl.h"
-# include "../minilibx_opengl/mlx_new_window.h"
-# include "../minilibx_opengl/mlx_int.h"
+// # include "../mlx/mlx.h"
+// # include "../mlx/mlx_png.h"
+// # include "../mlx/mlx_opengl.h"
+// # include "../mlx/mlx_new_window.h"
+// # include "../mlx/mlx_int.h"
 # include <fcntl.h>
 # include <limits.h>
 # include <math.h>
-# include <mlx.h>
+# include "../mlx.h"
 # include <stdio.h>
 # include <stdlib.h>
 # include <string.h>
@@ -75,29 +75,31 @@ typedef struct s_textures
 
 typedef struct s_lst
 {
-	int			sx;
-	int			sy;
-	void		*mx;
-	void		*wn;
-	t_textures	*north;
-	t_textures	*south;
-	t_textures	*west;
-	t_textures	*east;
-	char		*no;
-	char		*so;
-	char		*we;
-	char		*ea;
-	int			*f;
-	int			*c;
-	int			i;
-	char		**map;
-	char		orie;
-	int			s_lin;
-	int			len;
-	double		t;
-	t_pos		p;
-	t_im		im;
-
+	int				sx;
+	int				sy;
+	void			*mx;
+	void			*wn;
+	t_textures		*north;
+	t_textures		*south;
+	t_textures		*west;
+	t_textures		*east;
+	char			*no;
+	char			*so;
+	char			*we;
+	char			*ea;
+	int				*f;
+	int				*c;
+	unsigned int 	f_rgb;
+	unsigned int 	c_rgb;
+	int				i;
+	char			**map;
+	char			orie;
+	int				s_lin;
+	int				len;
+	double			t;
+	t_pos			p;
+	t_im			im;
+	int				old_p;
 }			t_lst;
 
 # ifndef BUFFER_SIZE

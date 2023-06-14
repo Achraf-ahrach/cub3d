@@ -6,7 +6,7 @@
 /*   By: aahrach <aahrach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 10:36:20 by ajari             #+#    #+#             */
-/*   Updated: 2023/06/11 16:00:41 by aahrach          ###   ########.fr       */
+/*   Updated: 2023/06/14 15:22:33 by aahrach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,9 +136,9 @@ void	rays(t_lst m, double dh, double dv, int color)
 		(dh < dv) && (dv = dh, v_x = h_x, v_y = h_y);// cordination v_x and v_y of ray
 		dh = ceil(fabs((SQ * 320) / (dv * cos(fabs(m.t - t)))));
 		dh *= 2;
-		draw_line(m, (t_pos){m.i, 0}, (t_pos){m.i, ceil(fabs(HIE / 2 - dh / 2))}, BLUE);
+		draw_line(m, (t_pos){m.i, 0}, (t_pos){m.i, ceil(fabs(HIE / 2 - dh / 2))}, m.c_rgb);
 		texters(m, dh, v_x, v_y);
-		draw_line(m, (t_pos){m.i, ceil(fabs(HIE / 2 - dh / 2 + dh))}, (t_pos){m.i, HIE - 1}, WHITE);
+		draw_line(m, (t_pos){m.i, ceil(fabs(HIE / 2 - dh / 2 + dh))}, (t_pos){m.i, HIE - 1}, m.f_rgb);
 		m.i++;
 		m.t += (PI / 3) / WIE;
 		(m.t > 2 * PI) && (m.t = 0);
