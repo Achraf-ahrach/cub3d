@@ -5,7 +5,7 @@ SRCPA = src/parsing
 SRCRA = src/raycasting
 LIBFT = src/libft/libft.a
 MLX = libmlx.a
-LIB =  -lmlx -framework OpenGL -framework AppKit #-O3
+LIB =  -lmlx -framework OpenGL -framework AppKit -O3
 SRCP = $(wildcard $(SRCPA)/*.c)
 SRCR = $(wildcard $(SRCRA)/*.c)
 
