@@ -6,7 +6,7 @@
 /*   By: aahrach <aahrach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 22:45:46 by aahrach           #+#    #+#             */
-/*   Updated: 2023/06/10 13:01:51 by aahrach          ###   ########.fr       */
+/*   Updated: 2023/06/14 12:58:21 by aahrach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	ft_init(t_lst *list)
 	list->ea = NULL;
 	list->c = 0;
 	list->f = 0;
+	list->old_p = -1;
 }
 
 int	check_name_file(char *str)

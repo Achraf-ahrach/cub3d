@@ -1,14 +1,14 @@
 SO textures/whitewall.xpm
 
-F 255     ,        255   ,    255
+F 200    ,       200   ,    200
 
-C 135, 206, 235
+C 10    ,       80   ,    200
 
-NO textures/wall.xpm
+NO textures/zlazrak.xpm
 
-WE textures/whitewall.xpm
+WE textures/isto.xpm
 
-EA textures/whitewall.xpm
+EA textures/wall.xpm
 
 
 
