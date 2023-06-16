@@ -6,7 +6,7 @@
 /*   By: ajari <ajari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 16:04:31 by ajari             #+#    #+#             */
-/*   Updated: 2023/06/16 12:17:24 by ajari            ###   ########.fr       */
+/*   Updated: 2023/06/16 12:39:10 by ajari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ int	main(int ac, char **av)
 	mlx_put_image_to_window(m->mx, m->wn, m->im.p, 0, 0);
 	put_ply(*m, (t_pos){100, 100}, RED);
 	mlx_hook(m->wn, 2, 0, move_key, m);
-	mlx_hook(m->wn, 6, 0, mousemove, m);
+	//mlx_hook(m->wn, 6, 0, mousemove, m);
 	mlx_hook(m->wn, 17, 0, destroy, NULL);
 	mlx_loop(m->mx);
 }

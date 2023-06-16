@@ -6,7 +6,7 @@
 /*   By: ajari <ajari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 10:36:20 by ajari             #+#    #+#             */
-/*   Updated: 2023/06/16 12:16:48 by ajari            ###   ########.fr       */
+/*   Updated: 2023/06/16 17:35:50 by ajari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,10 +76,10 @@ unsigned int	get_color(t_textures *direction, int x, int y)
 	return (*((unsigned int *)(direction->im.ad + offset)));
 }
 
-int	ft_has_wall(t_lst m, int x, int y)
+int	ft_has_wall(t_lst m, double x, double y)
 {
 	//printf("x = %d    y = %d\n", x, y);
-	if (m.map[y / SQ][x / SQ] == '1')
+	if (m.map[(int)(y / SQ)][(int)(x / SQ)] == '1')
 		return (1);
 	else
 		return (0);
@@ -98,17 +98,29 @@ void	texters(t_lst m, double dh, double v_x, double v_y)
 	direction = NULL;
 	y = 0;
 	if (ft_has_wall(m, v_x, v_y + 1) && !ft_has_wall(m, v_x, v_y - 1))
+	{
+		printf("1x:%d y:%d\n", (int)v_x, (int)v_y);
 		direction = m.west;
+	}
 	else if (ft_has_wall(m, v_x + 1, v_y) && !ft_has_wall(m, v_x - 1, v_y))
+	{
+		printf("2x:%d y:%d\n", (int)v_x, (int)v_y);
 		direction = m.east;
+	}
 	else if (ft_has_wall(m, v_x - 1, v_y) && !ft_has_wall(m, v_x + 1, v_y))
+	{
+		printf("3x:%d y:%d\n", (int)v_x, (int)v_y);
 		direction = m.south;
+	}
 	else
+	{
+		printf("4x:%d y:%d\n", (int)v_x, (int)v_y);
 		direction = m.north;
+	}
 	offy = direction->h / dh;
 	start = ceil(HIE / 2 - dh / 2);
 	end = start + dh;
-	x = (int)(direction->w * ((v_x + v_y) / SQ)) % direction->w;
+	x = (int)(direction->w * ((v_x + v_y) / SQ)) % (direction->w);
 	while (start < end)
 	{
 		color = get_color(direction, x, y);

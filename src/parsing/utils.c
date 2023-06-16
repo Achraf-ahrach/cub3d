@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aahrach <aahrach@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ajari <ajari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 22:45:46 by aahrach           #+#    #+#             */
-/*   Updated: 2023/06/14 12:58:21 by aahrach          ###   ########.fr       */
+/*   Updated: 2023/06/16 13:33:48 by ajari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,8 +89,8 @@ void	fill_in_struct(t_lst *list, char *tmp)
 			foort_ceiling(list, &tmp, 'f', 0);
 		else if (*tmp == 'C' && tmp[1] && tmp[1] == ' ' && !list->c)
 			foort_ceiling(list, &tmp, 'c', 0);
-		else if ((*tmp == ' ' || *tmp == '1') && list->no
-			&& list->so && list->we && list->ea && list->f && list->c)
+		else if ((*tmp == ' ' || *tmp == '1') && list->no && list->so
+				&& list->we && list->ea && list->f && list->c)
 		{
 			ft_map(list, tmp);
 			break ;
