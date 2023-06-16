@@ -1,14 +1,14 @@
-SO textures/whitewall.xpm
+SO src/textures/whitewall.xpm
 
 F 200    ,       200   ,    200
 
 C 10    ,       80   ,    200
 
-NO textures/zlazrak.xpm
+NO src/textures/zlazrak.xpm
 
-WE textures/isto.xpm
+WE src/textures/isto.xpm
 
-EA textures/wall.xpm
+EA src/textures/wall.xpm
 
 
 
