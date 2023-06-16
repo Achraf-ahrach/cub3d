@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rays.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aahrach <aahrach@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ajari <ajari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 10:36:20 by ajari             #+#    #+#             */
-/*   Updated: 2023/06/16 18:18:05 by aahrach          ###   ########.fr       */
+/*   Updated: 2023/06/16 18:45:51 by ajari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,16 +98,18 @@ void	texters(t_lst m, double dh, double v_x, double v_y)
 	y = 0;
 	if (ft_has_wall(m, v_x, v_y + 0.005) && !ft_has_wall(m, v_x, v_y - 0.005))
 		direction = m.west;
-	else if (ft_has_wall(m, v_x + 0.005, v_y) && !ft_has_wall(m, v_x - 0.005, v_y))
+	else if (ft_has_wall(m, v_x + 0.005, v_y) && !ft_has_wall(m, v_x - 0.005,
+				v_y))
 		direction = m.east;
-	else if (ft_has_wall(m, v_x - 0.005, v_y) && !ft_has_wall(m, v_x + 0.005, v_y))
+	else if (ft_has_wall(m, v_x - 0.005, v_y) && !ft_has_wall(m, v_x + 0.005,
+				v_y))
 		direction = m.south;
 	else
 		direction = m.north;
 	offy = direction->h / dh;
 	start = ceil(HIE / 2 - dh / 2);
 	end = start + dh;
-	x = (int)(direction->w * ((v_x + v_y) / SQ)) % direction->w;
+	x = (int)(direction->w * ((v_x + v_y) / SQ)) % (direction->w);
 	while (start < end)
 	{
 		color = get_color(direction, x, y);
