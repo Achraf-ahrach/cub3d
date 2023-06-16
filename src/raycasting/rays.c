@@ -6,7 +6,7 @@
 /*   By: aahrach <aahrach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 10:36:20 by ajari             #+#    #+#             */
-/*   Updated: 2023/06/16 22:04:44 by aahrach          ###   ########.fr       */
+/*   Updated: 2023/06/16 22:06:11 by aahrach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ double	cord_horizo(t_lst m, double *x, double *y)
 	double	dy;
 
 	dy = -SQ;
-	*y = (int)(m.p.y / SQ) * SQ;
+	*y = ((int)(m.p.y / SQ)) * SQ;
 	(m.t > 0 && m.t < PI) && (*y += SQ);
 	(m.t > 0 && m.t < PI) && (dy = SQ);
 	dx = fabs(dy / tan(m.t));
@@ -45,7 +45,7 @@ double	cord_verti(t_lst m, double *x, double *y)
 	double	dy;
 
 	dx = SQ;
-	*x = (int)(m.p.x / SQ) * SQ;
+	*x = ((int)(m.p.x / SQ)) * SQ;
 	(m.t < PD || m.t > 3 * PD) && (*x += SQ);
 	(m.t > PD && m.t < 3 * PD) && (dx = -SQ);
 	dy = fabs(dx * tan(m.t));
@@ -119,15 +119,13 @@ void	texters(t_lst m, double dh, double v_x, double v_y)
 	}
 }
 
-void	rays(t_lst m, double dh, double dv, int color)
+void	rays(t_lst m, double dh, double dv, double t)
 {
 	double	h_x;
 	double	h_y;
 	double	v_x;
 	double	v_y;
-	double	t;
 
-	(void)color;
 	m.i = WIE / 2;
 	t = m.t;
 	while (--m.i)
@@ -140,9 +138,7 @@ void	rays(t_lst m, double dh, double dv, int color)
 		dh = cord_horizo(m, &h_x, &h_y);
 		dv = cord_verti(m, &v_x, &v_y);
 		(dh < dv) && (dv = dh, v_x = h_x, v_y = h_y);
-		// cordination v_x and v_y of ray
-		dh = ceil(fabs((SQ * 320) / (dv * cos(fabs(m.t - t)))));
-		dh *= 2;
+		dh = ceil(fabs((SQ * 320) / (dv * cos(fabs(m.t - t))))) * 2;
 		draw_line(m, (t_pos){m.i, 0}, (t_pos){m.i, ceil(fabs(HIE / 2 - dh
 						/ 2))}, m.c_rgb);
 		texters(m, dh, v_x, v_y);

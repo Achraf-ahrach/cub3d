@@ -6,7 +6,7 @@
 /*   By: aahrach <aahrach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 16:04:31 by ajari             #+#    #+#             */
-/*   Updated: 2023/06/16 21:46:55 by aahrach          ###   ########.fr       */
+/*   Updated: 2023/06/16 22:06:07 by aahrach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	move_key(int k, t_lst *m)
 	(ok(m, k) == 13) && (m->p.x -= cos(t + PI) * S, m->p.y -= sin(t + PI) * S);
 	(ok(m, k) == 1) && (m->p.x += cos(t + PI) * S, m->p.y += sin(t + PI) * S);
 	rays(*m, 0, 0, BLUE);
-	// putwindow(*m, m->map, m->p.x, m->p.y);
+	putwindow(*m, m->map, m->p.x, m->p.y);
 	put_ply(*m, (t_pos){100, 100}, RED);
 	mlx_put_image_to_window(m->mx, m->wn, m->im.p, 0, 0);
 	return (0);
