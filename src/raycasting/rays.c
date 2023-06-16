@@ -6,7 +6,7 @@
 /*   By: ajari <ajari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 10:36:20 by ajari             #+#    #+#             */
-/*   Updated: 2023/06/16 18:45:12 by ajari            ###   ########.fr       */
+/*   Updated: 2023/06/16 18:45:51 by ajari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,11 +79,9 @@ unsigned int	get_color(t_textures *direction, int x, int y)
 int	ft_has_wall(t_lst m, int x, int y)
 {
 	if (m.map[y / SQ][x / SQ] == '1')
-		//printf("x = %d    y = %d\n", x, y);
-		if (m.map[(int)(y / SQ)][(int)(x / SQ)] == '1')
-			return (1);
-		else
-			return (0);
+		return (1);
+	else
+		return (0);
 }
 
 void	texters(t_lst m, double dh, double v_x, double v_y)
