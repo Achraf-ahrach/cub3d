@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 SO src/textures/ok.xpm
-=======
-SO textures/ok1.xpm
->>>>>>> 820d02fa10288e38e0afa6a5b48b233f2af45216
 
 F 200    ,       200   ,    200
 
@@ -10,11 +6,7 @@ C 10    ,       80   ,    200
 
 NO src/textures/zaki.xpm
 
-<<<<<<< HEAD
 WE src/textures/ok1.xpm
-=======
-WE textures/ok.xpm
->>>>>>> 820d02fa10288e38e0afa6a5b48b233f2af45216
 
 EA src/textures/ok3.xpm
 
