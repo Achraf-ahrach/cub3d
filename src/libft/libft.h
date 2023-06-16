@@ -6,12 +6,13 @@
 /*   By: ajari <ajari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 09:55:47 by ajari             #+#    #+#             */
-/*   Updated: 2023/06/08 08:33:55 by ajari            ###   ########.fr       */
+/*   Updated: 2023/06/16 00:24:06 by ajari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+
 # include <limits.h>
 # include <stdio.h>
 # include <stdlib.h>
@@ -26,6 +27,7 @@
 # define MAGENTA_T "\033[35m"
 # define CYAN_T "\033[36m"
 # define WHITE_T "\033[37m"
+
 int		ft_isspace(char c);
 int		ft_isalnum(int c);
 int		ft_isalpha(int c);

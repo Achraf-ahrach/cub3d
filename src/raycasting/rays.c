@@ -6,24 +6,11 @@
 /*   By: aahrach <aahrach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 10:36:20 by ajari             #+#    #+#             */
-/*   Updated: 2023/06/16 18:14:38 by aahrach          ###   ########.fr       */
+/*   Updated: 2023/06/16 18:18:05 by aahrach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
-
-int	check_wall(t_lst m, double x, double y, int k)
-{
-	x = x / SQ;
-	y = y / SQ;
-	if (m.t > PI && m.t < 2 * PI && k)
-		y--;
-	if (m.t > PD && m.t < 3 * PD && !k)
-		x--;
-	if (y < 0 || y >= m.sy || x < 0 || x > m.sx || m.map[(int)y][(int)x] == '1')
-		return (1);
-	return (0);
-}
 
 double	cord_horizo(t_lst m, double *x, double *y)
 {
@@ -38,7 +25,6 @@ double	cord_horizo(t_lst m, double *x, double *y)
 	*x = m.p.x + fabs((*y - m.p.y) / tan(m.t));
 	(m.t > PD && m.t < 3 * PD) && (*x = m.p.x - fabs((*y - m.p.y) / tan(m.t)));
 	(m.t > PD && m.t < 3 * PD) && (dx *= -1);
-	// cord("", *x, *y);
 	while (1)
 	{
 		if (check_wall(m, *x, *y, 1))
@@ -62,7 +48,7 @@ double	cord_verti(t_lst m, double *x, double *y)
 	*x = (int)(m.p.x / SQ) * SQ;
 	(m.t < PD || m.t > 3 * PD) && (*x += SQ);
 	(m.t > PD && m.t < 3 * PD) && (dx = -SQ);
-	dy = fabs(dx * tan(m.t)); 
+	dy = fabs(dx * tan(m.t));
 	*y = m.p.y - fabs((*x - m.p.x) * tan(m.t));
 	(m.t > 0 && m.t < PI) && (*y = m.p.y + fabs((*x - m.p.x) * tan(m.t)));
 	(m.t > PI) && (dy *= -1);
@@ -85,9 +71,9 @@ unsigned int	get_color(t_textures *direction, int x, int y)
 	int	offset;
 
 	if (x < 0 || y < 0 || x >= direction->w || y >= direction->h)
-		return YELLOW;
+		return (YELLOW);
 	offset = y * direction->im.ln_len + x * (direction->im.b_pxl / 8);
-	return *((unsigned int *)(direction->im.ad + offset));
+	return (*((unsigned int *)(direction->im.ad + offset)));
 }
 
 int	ft_has_wall(t_lst m, int x, int y)
@@ -106,8 +92,9 @@ void	texters(t_lst m, double dh, double v_x, double v_y)
 	float			y;
 	float			offy;
 	unsigned int	color;
-	t_textures		*direction = NULL;
+	t_textures		*direction;
 
+	direction = NULL;
 	y = 0;
 	if (ft_has_wall(m, v_x, v_y + 0.005) && !ft_has_wall(m, v_x, v_y - 0.005))
 		direction = m.west;
@@ -150,12 +137,15 @@ void	rays(t_lst m, double dh, double dv, int color)
 	{
 		dh = cord_horizo(m, &h_x, &h_y);
 		dv = cord_verti(m, &v_x, &v_y);
-		(dh < dv) && (dv = dh, v_x = h_x, v_y = h_y);// cordination v_x and v_y of ray
+		(dh < dv) && (dv = dh, v_x = h_x, v_y = h_y);
+		// cordination v_x and v_y of ray
 		dh = ceil(fabs((SQ * 320) / (dv * cos(fabs(m.t - t)))));
 		dh *= 2;
-		draw_line(m, (t_pos){m.i, 0}, (t_pos){m.i, ceil(fabs(HIE / 2 - dh / 2))}, m.c_rgb);
+		draw_line(m, (t_pos){m.i, 0}, (t_pos){m.i, ceil(fabs(HIE / 2 - dh
+						/ 2))}, m.c_rgb);
 		texters(m, dh, v_x, v_y);
-		draw_line(m, (t_pos){m.i, ceil(fabs(HIE / 2 - dh / 2 + dh))}, (t_pos){m.i, HIE - 1}, m.f_rgb);
+		draw_line(m, (t_pos){m.i, ceil(fabs(HIE / 2 - dh / 2 + dh))},
+				(t_pos){m.i, HIE - 1}, m.f_rgb);
 		m.i++;
 		m.t += (PI / 3) / WIE;
 		(m.t > 2 * PI) && (m.t = 0);

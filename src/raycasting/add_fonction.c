@@ -6,21 +6,11 @@
 /*   By: ajari <ajari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 07:25:19 by ajari             #+#    #+#             */
-/*   Updated: 2023/06/07 16:16:35 by ajari            ###   ########.fr       */
+/*   Updated: 2023/06/16 00:25:06 by ajari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
-
-void	print(t_lst m)
-{
-	for (int i = 0; m.map[i]; i++)
-		printf("%s\n", m.map[i]);
-}
-void	cord(char *s, double x, double y)
-{
-	printf("%s:x---->%d y-----> %d\n", s, (int)x, (int)y);
-}
 
 void	draw_line(t_lst m, t_pos p1, t_pos p2, int color)
 {
@@ -40,7 +30,6 @@ void	draw_line(t_lst m, t_pos p1, t_pos p2, int color)
 	while (1)
 	{
 		i = 0;
-		// cord("go  ", p1.x, p1.y);
 		my_mlxput_pixel(m, p1.x, p1.y, color);
 		if ((int)p1.x == (int)p2.x && (int)p1.y == (int)p2.y)
 			break ;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   put_window.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aahrach <aahrach@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ajari <ajari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 07:21:45 by ajari             #+#    #+#             */
-/*   Updated: 2023/06/11 14:48:12 by aahrach          ###   ########.fr       */
+/*   Updated: 2023/06/16 12:17:06 by ajari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,20 +101,6 @@ void	put_miniblack(t_lst m)
 	}
 }
 
-void	my_drawline(t_lst m, t_pos p1, t_pos p2, int color)
-{
-	float	a;
-	float	b;
-
-	a = (p1.y - p2.y) / (p1.x - p2.x);
-	b = -a * p1.x + p1.y;
-	while (p1.x != p2.x || p1.y != p1.y)
-	{
-		p1.y = a * p1.x + b;
-		my_mlxput_pixel(m, ceil(p1.x), ceil(p1.y), color);
-		p1.x++;
-	}
-}
 void	putwindow(t_lst m, char **p, int x, int y)
 {
 	int k;
