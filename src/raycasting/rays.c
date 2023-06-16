@@ -6,7 +6,7 @@
 /*   By: aahrach <aahrach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 10:36:20 by ajari             #+#    #+#             */
-/*   Updated: 2023/06/16 17:20:26 by aahrach          ###   ########.fr       */
+/*   Updated: 2023/06/16 18:14:38 by aahrach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,6 @@ unsigned int	get_color(t_textures *direction, int x, int y)
 
 int	ft_has_wall(t_lst m, int x, int y)
 {
-	//printf("x = %d    y = %d\n", x, y);
 	if (m.map[y / SQ][x / SQ] == '1')
 		return (1);
 	else
@@ -122,8 +121,6 @@ void	texters(t_lst m, double dh, double v_x, double v_y)
 	start = ceil(HIE / 2 - dh / 2);
 	end = start + dh;
 	x = (int)(direction->w * ((v_x + v_y) / SQ)) % direction->w;
-	//printf("x => %f y = %f (%f)\n", v_x / 20, v_y / 20, (v_x + v_y) / SQ);
-	//exit (0);
 	while (start < end)
 	{
 		color = get_color(direction, x, y);
