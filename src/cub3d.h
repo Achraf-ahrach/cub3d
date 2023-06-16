@@ -6,7 +6,7 @@
 /*   By: aahrach <aahrach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 10:53:24 by aahrach           #+#    #+#             */
-/*   Updated: 2023/06/16 18:21:44 by aahrach          ###   ########.fr       */
+/*   Updated: 2023/06/16 18:43:08 by aahrach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define CUB3D_H
 
 # include "libft/libft.h"
-# include "mlx.h"
 # include <fcntl.h>
 # include <limits.h>
 # include <math.h>
@@ -22,6 +21,7 @@
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h>
+# include <mlx.h>
 ///////////////////*  parsing  *////////////////////////////
 # define RED 0xFF0000
 # define GREEN 0x00FF00

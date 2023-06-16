@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ajari <ajari@student.42.fr>                +#+  +:+       +#+        */
+/*   By: aahrach <aahrach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 16:04:31 by ajari             #+#    #+#             */
-/*   Updated: 2023/06/16 12:17:24 by ajari            ###   ########.fr       */
+/*   Updated: 2023/06/16 18:47:34 by aahrach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	move_key(int k, t_lst *m)
 	(ok(m, k) == 13) && (m->p.x -= cos(t + PI) * S, m->p.y -= sin(t + PI) * S);
 	(ok(m, k) == 1) && (m->p.x += cos(t + PI) * S, m->p.y += sin(t + PI) * S);
 	rays(*m, 0, 0, BLUE);
-	putwindow(*m, m->map, m->p.x, m->p.y);
+	// putwindow(*m, m->map, m->p.x, m->p.y);
 	put_ply(*m, (t_pos){100, 100}, RED);
 	mlx_put_image_to_window(m->mx, m->wn, m->im.p, 0, 0);
 	return (0);
@@ -59,15 +59,12 @@ int	move_key(int k, t_lst *m)
 
 int	mousemove(int x, int y, t_lst *m)
 {
-	(void)y;
 	if (x < 0 || y < 0 || x > WIE || y > HIE)
 		return (0);
-	if (x < m->old_p) // limen
+	if (x < m->old_p)
 		move_key(123, m);
-	else if (x > m->old_p) //liser
+	else if (x > m->old_p)
 		move_key(124, m);
-	// if (x < 0 || y < 0 || x > WIE || y > HIE)
-	// 	mlx_mouse_move(m->wn, WIE / 2, HIE / 2);
 	m->old_p = x;
 	return (0);
 }
@@ -89,11 +86,8 @@ int	main(int ac, char **av)
 	m->im.p = mlx_new_image(m->mx, WIE, HIE);
 	m->im.ad = mlx_get_data_addr(m->im.p, &m->im.b_pxl, &m->im.ln_len,
 			&m->im.edn);
-	//mlx_mouse_hide();
 	get_positionplayer(m, m->map);
-	// putwindow(*m, m->map, m->p.x, m->p.y);
-	//my_drawline(m, (t_pos){0, 0}, (t_pos){1000, 800});
-	//draw_line(m, (t_pos){0, 0 + 5}, (t_pos){1000, 800 + 5}, GREEN);
+	putwindow(*m, m->map, m->p.x, m->p.y);
 	rays(*m, 0, 0, BLUE);
 	mlx_put_image_to_window(m->mx, m->wn, m->im.p, 0, 0);
 	put_ply(*m, (t_pos){100, 100}, RED);
