@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aahrach <aahrach@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ajari <ajari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 10:53:24 by aahrach           #+#    #+#             */
-/*   Updated: 2023/06/16 18:43:08 by aahrach          ###   ########.fr       */
+/*   Updated: 2023/06/16 19:12:14 by ajari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@
 # include <fcntl.h>
 # include <limits.h>
 # include <math.h>
+# include <mlx.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h>
-# include <mlx.h>
 ///////////////////*  parsing  *////////////////////////////
 # define RED 0xFF0000
 # define GREEN 0x00FF00
@@ -108,7 +108,7 @@ char				*ft_strdup(const char *s);
 void				my_mlxput_pixel(t_lst m, int x, int y, size_t color);
 void				draw_line(t_lst m, t_pos p1, t_pos p2, int color);
 int					check_wall(t_lst m, double x, double y, int k);
-void				rays(t_lst m, double dh, double dv, int color);
+void				rays(t_lst m, double dh, double dv, double t);
 int					put_squart(t_lst m, t_pos p, int x, int y);
 void				putwindow(t_lst m, char **p, int x, int y);
 void				get_positionplayer(t_lst *m, char **s);
