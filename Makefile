@@ -4,8 +4,8 @@ CFLAGS = -Wall -Wextra -Werror #-fsanitize=address -g3
 SRCPA = src/parsing
 SRCRA = src/raycasting
 LIBFT = src/libft/libft.a
-MLX = libmlx.a
-LIB =  -lmlx -framework OpenGL -framework AppKit #-O3
+MLX = src/libmlx.a
+LIB =  -lmlx -framework OpenGL -framework AppKit -O3
 SRCP = $(wildcard $(SRCPA)/*.c)
 SRCR = $(wildcard $(SRCRA)/*.c)
 
@@ -26,10 +26,5 @@ clean:
 
 fclean: clean
 	rm -rf $(NAME)
-
-push : fclean 
-	git add .
-	git commit -m "Updated"
-	git push
 
 re: fclean  all

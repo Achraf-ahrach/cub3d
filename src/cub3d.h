@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ajari <ajari@student.42.fr>                +#+  +:+       +#+        */
+/*   By: aahrach <aahrach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 10:53:24 by aahrach           #+#    #+#             */
-/*   Updated: 2023/06/16 12:16:32 by ajari            ###   ########.fr       */
+/*   Updated: 2023/06/16 18:21:44 by aahrach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,7 @@
 # define CUB3D_H
 
 # include "libft/libft.h"
-// # include "../mlx/mlx.h"
-// # include "../mlx/mlx_png.h"
-// # include "../mlx/mlx_opengl.h"
-// # include "../mlx/mlx_new_window.h"
-// # include "../mlx/mlx_int.h"
-# include "../mlx.h"
+# include "mlx.h"
 # include <fcntl.h>
 # include <limits.h>
 # include <math.h>

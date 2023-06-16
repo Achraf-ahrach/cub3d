@@ -6,7 +6,7 @@
 /*   By: ajari <ajari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 10:36:20 by ajari             #+#    #+#             */
-/*   Updated: 2023/06/16 18:40:05 by ajari            ###   ########.fr       */
+/*   Updated: 2023/06/16 18:44:00 by ajari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,11 +78,12 @@ unsigned int	get_color(t_textures *direction, int x, int y)
 
 int	ft_has_wall(t_lst m, double x, double y)
 {
-	//printf("x = %d    y = %d\n", x, y);
-	if (m.map[(int)(y / SQ)][(int)(x / SQ)] == '1')
-		return (1);
-	else
-		return (0);
+	if (m.map[y / SQ][x / SQ] == '1')
+		//printf("x = %d    y = %d\n", x, y);
+		if (m.map[(int)(y / SQ)][(int)(x / SQ)] == '1')
+			return (1);
+		else
+			return (0);
 }
 
 void	texters(t_lst m, double dh, double v_x, double v_y)
@@ -97,11 +98,13 @@ void	texters(t_lst m, double dh, double v_x, double v_y)
 
 	direction = NULL;
 	y = 0;
-	if (ft_has_wall(m, v_x, v_y + 1) && !ft_has_wall(m, v_x, v_y - 1))
+	if (ft_has_wall(m, v_x, v_y + 0.005) && !ft_has_wall(m, v_x, v_y - 0.005))
 		direction = m.west;
-	else if (ft_has_wall(m, v_x + 1, v_y) && !ft_has_wall(m, v_x - 1, v_y))
+	else if (ft_has_wall(m, v_x + 0.005, v_y) && !ft_has_wall(m, v_x - 0.005,
+				v_y))
 		direction = m.east;
-	else if (ft_has_wall(m, v_x - 1, v_y) && !ft_has_wall(m, v_x + 1, v_y))
+	else if (ft_has_wall(m, v_x - 0.005, v_y) && !ft_has_wall(m, v_x + 0.005,
+				v_y))
 		direction = m.south;
 	else
 		direction = m.north;
