@@ -6,7 +6,7 @@
 /*   By: aahrach <aahrach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 16:04:31 by ajari             #+#    #+#             */
-/*   Updated: 2023/06/14 15:40:17 by aahrach          ###   ########.fr       */
+/*   Updated: 2023/06/15 12:22:28 by aahrach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,11 @@ int	mousemove(int x, int y, t_lst *m)
 	return (0);
 }
 
+int	destroy(void)
+{
+	exit (0);
+}
+
 int	main(int ac, char **av)
 {
 	t_lst *m;
@@ -86,5 +91,6 @@ int	main(int ac, char **av)
 	put_ply(*m, (t_pos){100, 100}, RED);
 	mlx_hook(m->wn, 2, 0, move_key, m);
 	mlx_hook(m->wn, 6, 0, mousemove, m);
+	mlx_hook(m->wn, 17, 0, destroy, NULL);
 	mlx_loop(m->mx);
 }

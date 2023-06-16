@@ -4,11 +4,11 @@ F 200    ,       200   ,    200
 
 C 10    ,       80   ,    200
 
-NO textures/wall.xpm
+NO textures/zlazrak.xpm
 
-WE textures/zlazrak.xpm
+WE textures/isto.xpm
 
-EA textures/whitewall.xpm
+EA textures/wall.xpm
 
 
 

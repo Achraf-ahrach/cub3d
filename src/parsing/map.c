@@ -6,7 +6,7 @@
 /*   By: aahrach <aahrach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 22:29:25 by aahrach           #+#    #+#             */
-/*   Updated: 2023/06/08 10:08:41 by aahrach          ###   ########.fr       */
+/*   Updated: 2023/06/14 16:45:09 by aahrach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,12 @@ void	check_map_valid(char *map, t_lst *list)
 		ft_error("THE MAP IS NOT VALID (N S E W) !\n");
 }
 
-void	space_join(char **map_test)
+void	space_join(char **map_test, int i)
 {
-	int		i;
 	int		max;
 	int		len;
 	char	*str;
 
-	i = -1;
 	max = ft_strlen(map_test[0]);
 	while (map_test[++i])
 	{
@@ -107,7 +105,7 @@ void	ft_map(t_lst *list, char *str_map)
 	i = -1;
 	check_map_valid(str_map, list);
 	map = ft_split(str_map, '\n');
-	space_join(map);
+	space_join(map, -1);
 	map_closed(map, -1, -1, 0);
 	list->map = map;
 }
