@@ -6,7 +6,7 @@
 /*   By: ajari <ajari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 10:36:20 by ajari             #+#    #+#             */
-/*   Updated: 2023/06/16 17:35:50 by ajari            ###   ########.fr       */
+/*   Updated: 2023/06/16 18:40:05 by ajari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,25 +98,13 @@ void	texters(t_lst m, double dh, double v_x, double v_y)
 	direction = NULL;
 	y = 0;
 	if (ft_has_wall(m, v_x, v_y + 1) && !ft_has_wall(m, v_x, v_y - 1))
-	{
-		printf("1x:%d y:%d\n", (int)v_x, (int)v_y);
 		direction = m.west;
-	}
 	else if (ft_has_wall(m, v_x + 1, v_y) && !ft_has_wall(m, v_x - 1, v_y))
-	{
-		printf("2x:%d y:%d\n", (int)v_x, (int)v_y);
 		direction = m.east;
-	}
 	else if (ft_has_wall(m, v_x - 1, v_y) && !ft_has_wall(m, v_x + 1, v_y))
-	{
-		printf("3x:%d y:%d\n", (int)v_x, (int)v_y);
 		direction = m.south;
-	}
 	else
-	{
-		printf("4x:%d y:%d\n", (int)v_x, (int)v_y);
 		direction = m.north;
-	}
 	offy = direction->h / dh;
 	start = ceil(HIE / 2 - dh / 2);
 	end = start + dh;
