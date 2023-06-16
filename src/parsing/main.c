@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aahrach <aahrach@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ajari <ajari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 22:28:34 by aahrach           #+#    #+#             */
-/*   Updated: 2023/06/10 13:03:18 by aahrach          ###   ########.fr       */
+/*   Updated: 2023/06/16 00:24:18 by ajari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,4 @@ t_lst	*list(int ac, char **env)
 		list->sy++;
 	list->sx = ft_strlen(list->map[0]);
 	return (free(map), list);
-	//system("leaks cub3d");
 }

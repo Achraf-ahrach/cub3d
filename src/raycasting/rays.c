@@ -6,24 +6,11 @@
 /*   By: ajari <ajari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 10:36:20 by ajari             #+#    #+#             */
-/*   Updated: 2023/06/11 12:15:16 by ajari            ###   ########.fr       */
+/*   Updated: 2023/06/16 00:29:24 by ajari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
-
-int	check_wall(t_lst m, double x, double y, int k)
-{
-	x = x / SQ;
-	y = y / SQ;
-	if (m.t > PI && m.t < 2 * PI && k)
-		y--;
-	if (m.t > PD && m.t < 3 * PD && !k)
-		x--;
-	if (y < 0 || y >= m.sy || x < 0 || x > m.sx || m.map[(int)y][(int)x] == '1')
-		return (1);
-	return (0);
-}
 
 double	cord_horizo(t_lst m, double *x, double *y)
 {
@@ -38,7 +25,6 @@ double	cord_horizo(t_lst m, double *x, double *y)
 	*x = m.p.x + fabs((*y - m.p.y) / tan(m.t));
 	(m.t > PD && m.t < 3 * PD) && (*x = m.p.x - fabs((*y - m.p.y) / tan(m.t)));
 	(m.t > PD && m.t < 3 * PD) && (dx *= -1);
-	// cord("", *x, *y);
 	while (1)
 	{
 		if (check_wall(m, *x, *y, 1))
@@ -85,9 +71,9 @@ unsigned int	get_color(t_lst m, int x, int y)
 	int	offset;
 
 	if (x < 0 || y < 0 || x >= m.north->w || y >= m.north->h)
-		return YELLOW;
+		return (YELLOW);
 	offset = y * m.north->im.ln_len + x * (m.north->im.b_pxl / 8);
-	return *((unsigned int *)(m.north->im.ad + offset));
+	return (*((unsigned int *)(m.north->im.ad + offset)));
 }
 
 void	texters(t_lst m, double dh, double v_x, double v_y)
@@ -133,14 +119,17 @@ void	rays(t_lst m, double dh, double dv, int color)
 	{
 		dh = cord_horizo(m, &h_x, &h_y);
 		dv = cord_verti(m, &v_x, &v_y);
-		(dh < dv) && (dv = dh, v_x = h_x, v_y = h_y);// cordination v_x and v_y of ray
+		(dh < dv) && (dv = dh, v_x = h_x, v_y = h_y);
+		// cordination v_x and v_y of ray
 		dh = ceil(fabs((SQ * 320) / (dv * cos(fabs(m.t - t)))));
 		dh *= 2;
 		if (dh + (HIE / 2 - dh / 2) > HIE)
 			dh = HIE - 1;
-		draw_line(m, (t_pos){m.i, 0}, (t_pos){m.i, ceil(fabs(HIE / 2 - dh / 2))}, BLUE);
+		draw_line(m, (t_pos){m.i, 0}, (t_pos){m.i, ceil(fabs(HIE / 2 - dh
+						/ 2))}, BLUE);
 		texters(m, dh, v_x, v_y);
-		draw_line(m, (t_pos){m.i, ceil(fabs(HIE / 2 - dh / 2 + dh))}, (t_pos){m.i, HIE - 1}, WHITE);
+		draw_line(m, (t_pos){m.i, ceil(fabs(HIE / 2 - dh / 2 + dh))},
+				(t_pos){m.i, HIE - 1}, WHITE);
 		m.i++;
 		m.t += (PI / 3) / WIE;
 		(m.t > 2 * PI) && (m.t = 0);

@@ -6,7 +6,7 @@
 /*   By: ajari <ajari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 07:20:55 by ajari             #+#    #+#             */
-/*   Updated: 2023/06/08 11:35:09 by ajari            ###   ########.fr       */
+/*   Updated: 2023/06/16 00:29:34 by ajari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,17 @@ void	var_angle(int k, t_lst *m)
 		m->t += VAR_ANGLE;
 		(m->t > 2 * PI) && (m->t = 0);
 	}
+}
+
+int	check_wall(t_lst m, double x, double y, int k)
+{
+	x = x / SQ;
+	y = y / SQ;
+	if (m.t > PI && m.t < 2 * PI && k)
+		y--;
+	if (m.t > PD && m.t < 3 * PD && !k)
+		x--;
+	if (y < 0 || y >= m.sy || x < 0 || x > m.sx || m.map[(int)y][(int)x] == '1')
+		return (1);
+	return (0);
 }

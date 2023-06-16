@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aahrach <aahrach@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ajari <ajari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 16:04:31 by ajari             #+#    #+#             */
-/*   Updated: 2023/06/10 16:28:22 by aahrach          ###   ########.fr       */
+/*   Updated: 2023/06/16 00:25:39 by ajari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,24 @@
 
 void	get_images(t_lst *m)
 {
-	m->north->img = mlx_xpm_file_to_image(m->mx, m->no, &m->north->w, &m->north->h);
-	m->south->img = mlx_xpm_file_to_image(m->mx, m->so, &m->south->w, &m->south->h);
-	m->west->img = mlx_xpm_file_to_image(m->mx, m->we, &m->west->w, &m->west->h);
-	m->east->img = mlx_xpm_file_to_image(m->mx, m->ea, &m->east->w, &m->east->h);
+	m->north->img = mlx_xpm_file_to_image(m->mx, m->no, &m->north->w,
+			&m->north->h);
+	m->south->img = mlx_xpm_file_to_image(m->mx, m->so, &m->south->w,
+			&m->south->h);
+	m->west->img = mlx_xpm_file_to_image(m->mx, m->we, &m->west->w,
+			&m->west->h);
+	m->east->img = mlx_xpm_file_to_image(m->mx, m->ea, &m->east->w,
+			&m->east->h);
 	if (!m->north->img || !m->south->img || !m->west->img || !m->east->img)
 		ft_error("Error: open images\n");
-	m->north->im.ad = mlx_get_data_addr(m->north->img, &m->north->im.b_pxl, &m->north->im.ln_len, &m->north->im.edn);
-	m->south->im.ad = mlx_get_data_addr(m->south->img, &m->south->im.b_pxl, &m->south->im.ln_len, &m->south->im.edn);
-	m->west->im.ad = mlx_get_data_addr(m->west->img, &m->west->im.b_pxl, &m->west->im.ln_len, &m->west->im.edn);
-	m->east->im.ad = mlx_get_data_addr(m->east->img, &m->east->im.b_pxl, &m->east->im.ln_len, &m->east->im.edn);
+	m->north->im.ad = mlx_get_data_addr(m->north->img, &m->north->im.b_pxl,
+			&m->north->im.ln_len, &m->north->im.edn);
+	m->south->im.ad = mlx_get_data_addr(m->south->img, &m->south->im.b_pxl,
+			&m->south->im.ln_len, &m->south->im.edn);
+	m->west->im.ad = mlx_get_data_addr(m->west->img, &m->west->im.b_pxl,
+			&m->west->im.ln_len, &m->west->im.edn);
+	m->east->im.ad = mlx_get_data_addr(m->east->img, &m->east->im.b_pxl,
+			&m->east->im.ln_len, &m->east->im.edn);
 }
 
 int	move_key(int k, t_lst *m)
@@ -51,7 +59,7 @@ int	move_key(int k, t_lst *m)
 
 int	main(int ac, char **av)
 {
-	t_lst *m;
+	t_lst	*m;
 
 	(void)ac;
 	m = list(ac, av);
@@ -63,8 +71,6 @@ int	main(int ac, char **av)
 			&m->im.edn);
 	get_positionplayer(m, m->map);
 	putwindow(*m, m->map, m->p.x, m->p.y);
-	//my_drawline(m, (t_pos){0, 0}, (t_pos){1000, 800});
-	//draw_line(m, (t_pos){0, 0 + 5}, (t_pos){1000, 800 + 5}, GREEN);
 	mlx_put_image_to_window(m->mx, m->wn, m->im.p, 0, 0);
 	rays(*m, 0, 0, BLUE);
 	put_ply(*m, (t_pos){100, 100}, RED);
