@@ -6,7 +6,7 @@
 /*   By: aahrach <aahrach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 01:52:27 by aahrach           #+#    #+#             */
-/*   Updated: 2023/06/17 01:55:08 by aahrach          ###   ########.fr       */
+/*   Updated: 2023/06/17 10:10:48 by aahrach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,10 @@ void	texters(t_lst m, double dh, double v_x, double v_y)
 	if (ft_has_wall(m, v_x, v_y + 0.005) && !ft_has_wall(m, v_x, v_y - 0.005))
 		p.direction = m.west;
 	else if (ft_has_wall(m, v_x + 0.005, v_y) && !ft_has_wall(m, v_x - 0.005,
-				v_y))
+			v_y))
 		p.direction = m.east;
 	else if (ft_has_wall(m, v_x - 0.005, v_y) && !ft_has_wall(m, v_x + 0.005,
-				v_y))
+			v_y))
 		p.direction = m.south;
 	else
 		p.direction = m.north;

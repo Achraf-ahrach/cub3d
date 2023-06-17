@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   put_window.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ajari <ajari@student.42.fr>                +#+  +:+       +#+        */
+/*   By: aahrach <aahrach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 07:21:45 by ajari             #+#    #+#             */
-/*   Updated: 2023/06/16 12:17:06 by ajari            ###   ########.fr       */
+/*   Updated: 2023/06/17 10:06:40 by aahrach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	put_squart(t_lst m, t_pos p, int x, int y)
 			{
 				if (i && j)
 					my_mlxput_pixel(m, x * SQ + i - p.x, y * SQ + j - p.y,
-							WHITE);
+						WHITE);
 			}
 			i++;
 		}
@@ -103,10 +103,10 @@ void	put_miniblack(t_lst m)
 
 void	putwindow(t_lst m, char **p, int x, int y)
 {
-	int k;
-	int l;
-	int i;
-	int j;
+	int	k;
+	int	l;
+	int	i;
+	int	j;
 
 	k = x % SQ;
 	l = y % SQ;
