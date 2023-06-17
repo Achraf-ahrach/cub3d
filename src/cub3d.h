@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aahrach <aahrach@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ajari <ajari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 10:53:24 by aahrach           #+#    #+#             */
-/*   Updated: 2023/06/17 11:03:09 by aahrach          ###   ########.fr       */
+/*   Updated: 2023/06/17 14:54:33 by ajari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,26 +26,25 @@
 # define RED 0xFF0000
 # define GREEN 0x00FF00
 # define BLUE 0x87CEEB
-# define WHITE 0xFFFFFF
+# define W 0xFFFFFF
 # define YELLOW 0xFFF633
 # define BLACK 0x000000
-# define WIE 1000
-# define HIE 800
+# define WI 1000
+# define HI 800
 # define SQ 20
 # define PI 3.14159265359
-# define PD PI / 2
+# define PD 1.57079632679
 # define PL 6
-# define PM PL / 2
+# define PM 3
 # define VAR_ANGLE 0.2
-# define SM SQ / 2
+# define SM 10
 # define S 7
 
-
-typedef struct s_pos
+typedef struct s_ps
 {
 	double			x;
 	double			y;
-}					t_pos;
+}					t_ps;
 
 typedef struct s_im
 {
@@ -80,15 +79,15 @@ typedef struct s_lst
 	char			*ea;
 	int				*f;
 	int				*c;
-	unsigned int	f_rgb;
-	unsigned int	c_rgb;
+	unsigned int	fr;
+	unsigned int	cr;
 	int				i;
 	char			**map;
 	char			orie;
 	int				s_lin;
 	int				len;
 	double			t;
-	t_pos			p;
+	t_ps			p;
 	t_im			im;
 	int				old_p;
 }					t_lst;
@@ -118,14 +117,14 @@ char				*ft_strdup(const char *s);
 
 ///////////////////////// --fonctions cub-- ////////////////////////
 void				my_mlxput_pixel(t_lst m, int x, int y, size_t color);
-void				draw_line(t_lst m, t_pos p1, t_pos p2, int color);
+void				drawln(t_lst m, t_ps p1, t_ps p2, int color);
 int					check_wall(t_lst m, double x, double y, int k);
 void				rays(t_lst m, double dh, double dv, double t);
-int					put_squart(t_lst m, t_pos p, int x, int y);
+int					put_squart(t_lst m, t_ps p, int x, int y);
 void				putwindow(t_lst m, char **p, int x, int y);
-void				get_positionplayer(t_lst *m, char **s);
+void				get_psplayer(t_lst *m, char **s);
 double				get_angle(double t, double add, int i);
-int					put_ply(t_lst m, t_pos p, int color);
+int					put_ply(t_lst m, t_ps p, int color);
 void				cord(char *s, double x, double y);
 void				var_angle(int k, t_lst *m);
 int					move(int k, t_lst *m);
