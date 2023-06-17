@@ -3,14 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   textures.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ajari <ajari@student.42.fr>                +#+  +:+       +#+        */
+/*   By: aahrach <aahrach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 01:52:27 by aahrach           #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2023/06/17 10:39:50 by aahrach          ###   ########.fr       */
-=======
-/*   Updated: 2023/06/17 10:55:09 by ajari            ###   ########.fr       */
->>>>>>> 542690b92e3f9c59b8e72bdb726055d6cecb2b9f
+/*   Updated: 2023/06/17 10:57:28 by aahrach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,13 +47,7 @@ void	texters(t_lst m, double dh, double x, double y)
 	p.offy = p.direction->h / dh;
 	p.start = ceil(HI / 2 - dh / 2);
 	p.end = p.start + dh;
-<<<<<<< HEAD
-	printf("x = %f, y = %f\n", v_x, v_y);
-	exit (0);
-	p.x = (int)(p.direction->w * ((v_x + v_y) / SQ)) % (p.direction->w);
-=======
 	p.x = (int)(p.direction->w * ((x + y) / SQ)) % (p.direction->w);
->>>>>>> 542690b92e3f9c59b8e72bdb726055d6cecb2b9f
 	while (p.start < p.end)
 	{
 		p.color = get_color(p.direction, p.x, p.y);
