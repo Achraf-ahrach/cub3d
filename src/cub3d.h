@@ -6,7 +6,7 @@
 /*   By: ajari <ajari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 10:53:24 by aahrach           #+#    #+#             */
-/*   Updated: 2023/06/17 10:47:54 by ajari            ###   ########.fr       */
+/*   Updated: 2023/06/17 10:53:17 by ajari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,7 @@ char				*ft_strdup(const char *s);
 
 ///////////////////////// --fonctions cub-- ////////////////////////
 void				my_mlxput_pixel(t_lst m, int x, int y, size_t color);
-void				draw_line(t_lst m, t_ps p1, t_ps p2, int color);
+void				drawln(t_lst m, t_ps p1, t_ps p2, int color);
 int					check_wall(t_lst m, double x, double y, int k);
 void				rays(t_lst m, double dh, double dv, double t);
 int					put_squart(t_lst m, t_ps p, int x, int y);

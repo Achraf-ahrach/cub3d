@@ -6,7 +6,7 @@
 /*   By: ajari <ajari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 10:36:20 by ajari             #+#    #+#             */
-/*   Updated: 2023/06/17 10:44:22 by ajari            ###   ########.fr       */
+/*   Updated: 2023/06/17 10:52:15 by ajari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,10 +86,9 @@ void	rays(t_lst m, double dh, double dv, double t)
 		dv = cord_verti(m, &v_x, &v_y);
 		(dh < dv) && (dv = dh, v_x = h_x, v_y = h_y);
 		dh = ceil(fabs((SQ * 320) / (dv * cos(fabs(m.t - t))))) * 2;
-		draw_line(m, (t_ps){m.i, 0}, (t_ps){m.i, fabs((HI - dh) / 2)}, m.cr);
+		drawln(m, (t_ps){m.i, 0}, (t_ps){m.i, fabs((HI - dh) / 2)}, m.cr);
 		texters(m, dh, v_x, v_y);
-		draw_line(m, (t_ps){m.i, fabs((HI - dh) / 2 + dh)}, (t_ps){m.i, HI},
-				m.fr);
+		drawln(m, (t_ps){m.i, fabs((HI - dh) / 2 + dh)}, (t_ps){m.i, HI}, m.fr);
 		m.t += (PI / 3) / WI;
 		(m.t > 2 * PI) && (m.t = 0);
 	}
