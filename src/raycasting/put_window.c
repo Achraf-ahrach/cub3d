@@ -3,20 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   put_window.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aahrach <aahrach@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ajari <ajari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 07:21:45 by ajari             #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2023/06/17 10:11:28 by ajari            ###   ########.fr       */
-=======
-/*   Updated: 2023/06/17 10:06:40 by aahrach          ###   ########.fr       */
->>>>>>> 173038c0e1ecf5cfaee3623d74444afaed579a8f
+/*   Updated: 2023/06/17 10:49:14 by ajari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
 
-void	get_positionplayer(t_lst *m, char **s)
+void	get_psplayer(t_lst *m, char **s)
 {
 	int	k;
 	int	i;
@@ -40,7 +36,7 @@ void	get_positionplayer(t_lst *m, char **s)
 	}
 }
 
-int	put_squart(t_lst m, t_pos p, int x, int y)
+int	put_squart(t_lst m, t_ps p, int x, int y)
 {
 	int	i;
 	int	j;
@@ -54,8 +50,7 @@ int	put_squart(t_lst m, t_pos p, int x, int y)
 			if (x * SQ + i - p.x <= 200 && y * SQ + j - p.y <= 200)
 			{
 				if (i && j)
-					my_mlxput_pixel(m, x * SQ + i - p.x, y * SQ + j - p.y,
-						WHITE);
+					my_mlxput_pixel(m, x * SQ + i - p.x, y * SQ + j - p.y, W);
 			}
 			i++;
 		}
@@ -64,15 +59,15 @@ int	put_squart(t_lst m, t_pos p, int x, int y)
 	return (0);
 }
 
-int	put_ply(t_lst m, t_pos p, int color)
+int	put_ply(t_lst m, t_ps p, int color)
 {
 	double	x;
 	double	y;
 	int		j;
 	int		i;
 
-	i = WIE;
-	m.t = get_angle(m.t, (PI / 3) / WIE, WIE / 2);
+	i = WI;
+	m.t = get_angle(m.t, (PI / 3) / WI, WI / 2);
 	while (i--)
 	{
 		j = -1;
@@ -84,7 +79,7 @@ int	put_ply(t_lst m, t_pos p, int color)
 			x -= cos(m.t);
 			my_mlxput_pixel(m, x, y, color);
 		}
-		m.t += (PI / 3) / WIE;
+		m.t += (PI / 3) / WI;
 		(m.t > 2 * PI) && (m.t = 0);
 	}
 	return (0);
@@ -124,7 +119,7 @@ void	putwindow(t_lst m, char **p, int x, int y)
 		while (abs(i - x) < 11)
 		{
 			if (i < m.sx && i >= 0 && j >= 0 && j < m.sy && p[j][i] == '1')
-				put_squart(m, (t_pos){k, l}, i - x, j - y);
+				put_squart(m, (t_ps){k, l}, i - x, j - y);
 			i++;
 		}
 		j++;
