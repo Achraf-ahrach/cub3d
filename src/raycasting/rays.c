@@ -6,7 +6,7 @@
 /*   By: aahrach <aahrach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 10:36:20 by ajari             #+#    #+#             */
-/*   Updated: 2023/06/16 22:06:11 by aahrach          ###   ########.fr       */
+/*   Updated: 2023/06/17 01:55:03 by aahrach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,59 +64,6 @@ double	cord_verti(t_lst m, double *x, double *y)
 	(*x < 0) && (*x = 0);
 	(*y < 0) && (*y = 0);
 	return (sqrt(pow(m.p.x - *x, 2) + pow(m.p.y - *y, 2)));
-}
-
-unsigned int	get_color(t_textures *direction, int x, int y)
-{
-	int	offset;
-
-	if (x < 0 || y < 0 || x >= direction->w || y >= direction->h)
-		return (YELLOW);
-	offset = y * direction->im.ln_len + x * (direction->im.b_pxl / 8);
-	return (*((unsigned int *)(direction->im.ad + offset)));
-}
-
-int	ft_has_wall(t_lst m, int x, int y)
-{
-	if (m.map[y / SQ][x / SQ] == '1')
-		return (1);
-	else
-		return (0);
-}
-
-void	texters(t_lst m, double dh, double v_x, double v_y)
-{
-	double			start;
-	double			end;
-	int				x;
-	float			y;
-	float			offy;
-	unsigned int	color;
-	t_textures		*direction;
-
-	direction = NULL;
-	y = 0;
-	if (ft_has_wall(m, v_x, v_y + 0.005) && !ft_has_wall(m, v_x, v_y - 0.005))
-		direction = m.west;
-	else if (ft_has_wall(m, v_x + 0.005, v_y) && !ft_has_wall(m, v_x - 0.005,
-				v_y))
-		direction = m.east;
-	else if (ft_has_wall(m, v_x - 0.005, v_y) && !ft_has_wall(m, v_x + 0.005,
-				v_y))
-		direction = m.south;
-	else
-		direction = m.north;
-	offy = direction->h / dh;
-	start = ceil(HIE / 2 - dh / 2);
-	end = start + dh;
-	x = (int)(direction->w * ((v_x + v_y) / SQ)) % (direction->w);
-	while (start < end)
-	{
-		color = get_color(direction, x, y);
-		my_mlxput_pixel(m, m.i, start, color);
-		y += offy;
-		start++;
-	}
 }
 
 void	rays(t_lst m, double dh, double dv, double t)

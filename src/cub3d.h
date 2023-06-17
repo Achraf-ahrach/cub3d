@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ajari <ajari@student.42.fr>                +#+  +:+       +#+        */
+/*   By: aahrach <aahrach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 10:53:24 by aahrach           #+#    #+#             */
-/*   Updated: 2023/06/16 19:12:14 by ajari            ###   ########.fr       */
+/*   Updated: 2023/06/17 01:54:17 by aahrach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@
 # define VAR_ANGLE 0.2
 # define SM SQ / 2
 # define S 7
+
 
 typedef struct s_pos
 {
@@ -92,6 +93,17 @@ typedef struct s_lst
 	int				old_p;
 }					t_lst;
 
+typedef struct s_p
+{
+	t_textures		*direction;
+	double			start;
+	double			end;
+	int				x;
+	float			y;
+	float			offy;
+	unsigned int	color;
+}					t_p;
+
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 1
 # endif
@@ -119,6 +131,7 @@ void				var_angle(int k, t_lst *m);
 int					move(int k, t_lst *m);
 int					ok(t_lst *m, int k);
 void				print(t_lst m);
+void				texters(t_lst m, double dh, double v_x, double v_y);
 ////////////////////////////////////////////////////////////////////
 
 void				foort_ceiling(t_lst *list, char **tmp, char x, int i);
