@@ -6,7 +6,7 @@
 /*   By: aahrach <aahrach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 01:52:27 by aahrach           #+#    #+#             */
-/*   Updated: 2023/06/17 10:10:48 by aahrach          ###   ########.fr       */
+/*   Updated: 2023/06/17 10:39:50 by aahrach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ void	texters(t_lst m, double dh, double v_x, double v_y)
 	p.offy = p.direction->h / dh;
 	p.start = ceil(HIE / 2 - dh / 2);
 	p.end = p.start + dh;
+	printf("x = %f, y = %f\n", v_x, v_y);
+	exit (0);
 	p.x = (int)(p.direction->w * ((v_x + v_y) / SQ)) % (p.direction->w);
 	while (p.start < p.end)
 	{

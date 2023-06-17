@@ -8,7 +8,6 @@ LIB =  -lmlx -framework OpenGL -framework AppKit -O3
 SRCP = $(wildcard $(SRCPA)/*.c)
 SRCR = $(wildcard $(SRCRA)/*.c)
 
-
 all: $(NAME)
 
 $(NAME): $(SRCP) $(SRCR) $(LIBFT)
