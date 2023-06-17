@@ -6,7 +6,7 @@
 /*   By: ajari <ajari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 22:28:34 by aahrach           #+#    #+#             */
-/*   Updated: 2023/06/16 12:18:59 by ajari            ###   ########.fr       */
+/*   Updated: 2023/06/17 10:46:03 by ajari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ t_lst	*list(int ac, char **env)
 	while (list->map[list->sy])
 		list->sy++;
 	list->sx = ft_strlen(list->map[0]);
-	list->c_rgb = rgb(list->c);
-	list->f_rgb = rgb(list->f);
+	list->cr = rgb(list->c);
+	list->fr = rgb(list->f);
 	return (free(map), list);
 }

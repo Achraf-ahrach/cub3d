@@ -3,10 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   rays.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aahrach <aahrach@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ajari <ajari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 10:36:20 by ajari             #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2023/06/17 10:19:11 by aahrach          ###   ########.fr       */
+=======
+/*   Updated: 2023/06/17 10:52:15 by ajari            ###   ########.fr       */
+>>>>>>> 542690b92e3f9c59b8e72bdb726055d6cecb2b9f
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,26 +77,23 @@ void	rays(t_lst m, double dh, double dv, double t)
 	double	v_x;
 	double	v_y;
 
-	m.i = WIE / 2;
+	m.i = WI / 2;
 	t = m.t;
-	while (--m.i)
+	while (--m.i >= 0)
 	{
-		m.t -= (PI / 3) / WIE;
+		m.t -= (PI / 3) / WI;
 		(m.t < 0) && (m.t = 2 * PI);
 	}
-	while (m.i < WIE)
+	while (++m.i < WI)
 	{
 		dh = cord_horizo(m, &h_x, &h_y);
 		dv = cord_verti(m, &v_x, &v_y);
 		(dh < dv) && (dv = dh, v_x = h_x, v_y = h_y);
 		dh = ceil(fabs((SQ * 320) / (dv * cos(fabs(m.t - t))))) * 2;
-		draw_line(m, (t_pos){m.i, 0}, (t_pos){m.i, ceil(fabs(HIE / 2 - dh
-					/ 2))}, m.c_rgb);
+		drawln(m, (t_ps){m.i, 0}, (t_ps){m.i, fabs((HI - dh) / 2)}, m.cr);
 		texters(m, dh, v_x, v_y);
-		draw_line(m, (t_pos){m.i, ceil(fabs(HIE / 2 - dh / 2 + dh))},
-			(t_pos){m.i, HIE - 1}, m.f_rgb);
-		m.i++;
-		m.t += (PI / 3) / WIE;
+		drawln(m, (t_ps){m.i, fabs((HI - dh) / 2 + dh)}, (t_ps){m.i, HI}, m.fr);
+		m.t += (PI / 3) / WI;
 		(m.t > 2 * PI) && (m.t = 0);
 	}
 }
