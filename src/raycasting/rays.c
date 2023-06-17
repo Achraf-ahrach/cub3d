@@ -3,10 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   rays.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ajari <ajari@student.42.fr>                +#+  +:+       +#+        */
+/*   By: aahrach <aahrach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 10:36:20 by ajari             #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2023/06/17 10:09:31 by ajari            ###   ########.fr       */
+=======
+/*   Updated: 2023/06/17 10:11:02 by aahrach          ###   ########.fr       */
+>>>>>>> 173038c0e1ecf5cfaee3623d74444afaed579a8f
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,59 +70,6 @@ double	cord_verti(t_lst m, double *x, double *y)
 	return (sqrt(pow(m.p.x - *x, 2) + pow(m.p.y - *y, 2)));
 }
 
-unsigned int	get_color(t_textures *direction, int x, int y)
-{
-	int	offset;
-
-	if (x < 0 || y < 0 || x >= direction->w || y >= direction->h)
-		return (YELLOW);
-	offset = y * direction->im.ln_len + x * (direction->im.b_pxl / 8);
-	return (*((unsigned int *)(direction->im.ad + offset)));
-}
-
-int	ft_has_wall(t_lst m, int x, int y)
-{
-	if (m.map[y / SQ][x / SQ] == '1')
-		return (1);
-	else
-		return (0);
-}
-
-void	texters(t_lst m, double dh, double v_x, double v_y)
-{
-	double			start;
-	double			end;
-	int				x;
-	float			y;
-	float			offy;
-	unsigned int	color;
-	t_textures		*direction;
-
-	direction = NULL;
-	y = 0;
-	if (ft_has_wall(m, v_x, v_y + 0.005) && !ft_has_wall(m, v_x, v_y - 0.005))
-		direction = m.west;
-	else if (ft_has_wall(m, v_x + 0.005, v_y) && !ft_has_wall(m, v_x - 0.005,
-				v_y))
-		direction = m.east;
-	else if (ft_has_wall(m, v_x - 0.005, v_y) && !ft_has_wall(m, v_x + 0.005,
-				v_y))
-		direction = m.south;
-	else
-		direction = m.north;
-	offy = direction->h / dh;
-	start = ceil(HIE / 2 - dh / 2);
-	end = start + dh;
-	x = (int)(direction->w * ((v_x + v_y) / SQ)) % (direction->w);
-	while (start < end)
-	{
-		color = get_color(direction, x, y);
-		my_mlxput_pixel(m, m.i, start, color);
-		y += offy;
-		start++;
-	}
-}
-
 void	rays(t_lst m, double dh, double dv, double t)
 {
 	double	h_x;
@@ -140,10 +91,10 @@ void	rays(t_lst m, double dh, double dv, double t)
 		(dh < dv) && (dv = dh, v_x = h_x, v_y = h_y);
 		dh = ceil(fabs((SQ * 320) / (dv * cos(fabs(m.t - t))))) * 2;
 		draw_line(m, (t_pos){m.i, 0}, (t_pos){m.i, ceil(fabs(HIE / 2 - dh
-						/ 2))}, m.c_rgb);
+					/ 2))}, m.c_rgb);
 		texters(m, dh, v_x, v_y);
 		draw_line(m, (t_pos){m.i, ceil(fabs(HIE / 2 - dh / 2 + dh))},
-				(t_pos){m.i, HIE - 1}, m.f_rgb);
+			(t_pos){m.i, HIE - 1}, m.f_rgb);
 		m.i++;
 		m.t += (PI / 3) / WIE;
 		(m.t > 2 * PI) && (m.t = 0);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ajari <ajari@student.42.fr>                +#+  +:+       +#+        */
+/*   By: aahrach <aahrach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 16:04:31 by ajari             #+#    #+#             */
-/*   Updated: 2023/06/16 19:00:36 by ajari            ###   ########.fr       */
+/*   Updated: 2023/06/16 22:06:07 by aahrach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ int	main(int ac, char **av)
 	m->im.ad = mlx_get_data_addr(m->im.p, &m->im.b_pxl, &m->im.ln_len,
 			&m->im.edn);
 	get_positionplayer(m, m->map);
-	//putwindow(*m, m->map, m->p.x, m->p.y);
+	putwindow(*m, m->map, m->p.x, m->p.y);
 	rays(*m, 0, 0, BLUE);
 	mlx_put_image_to_window(m->mx, m->wn, m->im.p, 0, 0);
 	put_ply(*m, (t_pos){100, 100}, RED);
