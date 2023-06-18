@@ -6,7 +6,7 @@
 /*   By: aahrach <aahrach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 01:52:27 by aahrach           #+#    #+#             */
-/*   Updated: 2023/06/17 10:57:28 by aahrach          ###   ########.fr       */
+/*   Updated: 2023/06/18 11:49:56 by aahrach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	texters(t_lst m, double dh, double x, double y)
 	p.offy = p.direction->h / dh;
 	p.start = ceil(HI / 2 - dh / 2);
 	p.end = p.start + dh;
-	p.x = (int)(p.direction->w * ((x + y) / SQ)) % (p.direction->w);
+	p.x = (int)(p.direction->w * (x + y) / SQ) % (p.direction->w);
 	while (p.start < p.end)
 	{
 		p.color = get_color(p.direction, p.x, p.y);
